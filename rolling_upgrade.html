@@ -1,0 +1,152 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A rolling upgrade enables you to keep your existing distributed system running while you upgrade members. Rolling upgrade means that you can upgrade your entire distributed system to the latest ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Performing a Rolling Upgrade"/><meta name="abstract" content="A rolling upgrade enables you to keep your existing distributed system running while you upgrade members."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A rolling upgrade enables you to keep your existing distributed system running while you upgrade members."/><meta name="DC.subject" content="GemFire XD rolling upgrade, GemFire XD upgrade mixed versions"/><meta name="keywords" content="GemFire XD rolling upgrade, GemFire XD upgrade mixed versions"/><meta name="DC.Relation" scheme="URI" content="topics/upgrade-jar.html"/><meta name="DC.Relation" scheme="URI" content="rolling_upgrade_procedure.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_FBBBC26ADD98482EABB9AB01A14F895E"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Performing a Rolling Upgrade</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_FBBBC26ADD98482EABB9AB01A14F895E"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x.">Upgrading GemFire XD</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Upgrading GemFire XD</span></a></span>  </div></td></tr></tbody></table>
+
+	<h1 class="title topictitle1">Performing a Rolling Upgrade</h1>
+
+	
+	
+	<div class="body conbody"><p class="shortdesc">A rolling upgrade enables you to keep your existing distributed system running while you
+		upgrade members. </p>
+
+		<p class="p">Rolling upgrade means that you can upgrade your entire distributed system to the latest GemFire
+			XD release without experiencing any system downtime. You upgrade one member at a time,
+			and each upgraded member can communicate with other members that are running earlier
+			versions of GemFire XD.</p>
+
+		<div class="section" id="concept_FBBBC26ADD98482EABB9AB01A14F895E__section_1EB8EE64CAFA463BA283AAB893AE8551"><h2 class="title sectiontitle">Supported Versions for Rolling Upgrade</h2>
+			
+			<p class="p">Pivotal GemFire XD 1.3 introduced the ability to perform rolling upgrades between major
+				release versions. A major version corresponds to an increment in either the second
+				or the first position in a version number. For example, you can perform a rolling
+				upgrade from Pivotal GemFire XD 1.3 to Pivotal GemFire XD 1.4 without shutting down
+				the entire distributed system. </p>
+
+			<div class="p">
+				<div class="note note"><span class="notetitle">Note:</span> Rolling upgrade applies only to the locators, data stores, and peer clients within a
+					distributed system cluster. It does not apply to overall multi-site (WAN) or
+					client-server deployments because the version interoperability is looser between
+					clients and servers and between different WAN sites. See <a class="xref" href="version_compatiblity.html#concept_B494F3558DC34E3FA32FAD91EFBA19B0" title="This topic describes the compatibility rules for deploying different versions of Pivotal GemFire XD.">Pivotal GemFire XD Version Compatibility Rules</a> for more details on how
+					different versions of GemFire XD can interoperate. </div>
+
+			</div>
+
+		</div>
+
+		<div class="section"><h2 class="title sectiontitle">Guidelines</h2>
+			
+			<div class="p">Even when using GemFire XD versions that are compatible with rolling upgrade, a successful
+				rolling upgrade is possible only when you follow these guidelines. Review this
+				section to ensure that you can perform a rolling upgrade to GemFire XD 1.4:<ul class="ul" id="concept_FBBBC26ADD98482EABB9AB01A14F895E__ul_ntp_jf1_yk">
+					<li class="li">A successful rolling upgrade requires all partitioned tables to have been
+						fully configured with redundancy. Without redundancy, stopping individual
+						members causes table data to become unavailable for query processing. Check
+						the redundancy state of all your tables <em class="ph i">before</em> you begin the rolling
+						upgrade and <em class="ph i">before</em> stopping any members. See <a class="xref" href="../data_management/configuring_ha_for_pr.html#configuring_pr_redundancy" title="Configure in-memory high availability for your partitioned table. Set other high-availability options, like redundancy zones and redundancy recovery strategies.">Configure High Availability for a Partitioned Table</a> for details.</li>
+
+					<li class="li">Schedule your upgrade during a period of low user activity for your system
+						and network.</li>
+
+					<li class="li">Before you start the rolling upgrade, verify that all members that you wish
+						to upgrade are in fact members of the same distributed system.</li>
+
+					<li class="li">To ensure that your cluster stays available while you upgrade, make sure
+						that your cluster runs more than one locator.</li>
+
+					<li class="li">Upgrade locators members first, one at time. <div class="note note"><span class="notetitle">Note:</span> After you begin the
+							rolling upgrade process by starting a locator with the version 1.4
+							software, you can no longer start GemFire XD members that use the
+							version 1.3 software. GemFire XD members at version 1.3 will fail to
+							connect to the distributed system with the
+							message:<pre class="pre codeblock">Rejecting the attempt of a member using an older version of the product to join an upgraded distributed system.  
+Please restart the process using the new version of the product</pre>
+
+						</div>
+</li>
+
+					<li class="li">After upgrading locators, upgrade data stores one member at a time.</li>
+
+					<li class="li">During a rolling upgrade, your online cluster will have a mix of members
+						running different versions of GemFire XD. During this time, do not execute
+						DDL such as table rebalancing (unless you have
+							<samp class="ph codeph">startup-recovery-delay</samp> set to -1), creating tables,
+						altering tables, or dropping tables.</li>
+
+					<li class="li">Make a backup copy of your persistent data stores prior to upgrade.</li>
+
+					<li class="li">If you have <samp class="ph codeph">default-recovery-delay=-1</samp> configured for
+						partitioned tables, you will need to perform a rebalance on your tables
+						after you restart each member. If you have
+							<samp class="ph codeph">default-recovery-delay</samp> set to a low number, you may
+						need to wait extra time until the table has recovered redundancy.</li>
+
+					<li class="li">If you have <samp class="ph codeph">RECOVERYDELAY</samp> configured for a partitioned
+						table, you may need to perform a table rebalance after completing the
+						rolling upgrade process.</li>
+
+					<li class="li">If you use a WAN configuration or deploy AsyncEventListener implementations
+						where the gateway sender or listener queue is not persisted, then you should
+						wait for non-persistent queues to drain before you begin the rolling upgrade
+						procedure.</li>
+
+					<li class="li">During a rolling upgrade GemFire XD does not support cancelling statements
+						on members that run the older version of the GemFire XD software.</li>
+
+				</ul>
+</div>
+
+		</div>
+
+	</div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="rolling_upgrade_procedure.html">Rolling Upgrade Procedure</a></strong><br/>
+This topic contains the step-by-step procedure for performing a rolling upgrade.</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Upgrading GemFire XD</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

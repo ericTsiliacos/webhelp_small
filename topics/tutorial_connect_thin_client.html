@@ -1,0 +1,167 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="gfxd implements a command-line tool that is based on the Apache Derby ij tool. You can use gfxd to connect to a GemFire XD cluster and run scripts or interactive queries. You execute gfxd using the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Connect to the Cluster Using GFXD and Pulse"/><meta name="abstract" content="gfxd implements a command-line tool that is based on the Apache Derby ij tool. You can use gfxd to connect to a GemFire XD cluster and run scripts or interactive queries. You execute gfxd using the gfxd or gfxd.bat script."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="gfxd implements a command-line tool that is based on the Apache Derby ij tool. You can use gfxd to connect to a GemFire XD cluster and run scripts or interactive queries. You execute gfxd using the gfxd or gfxd.bat script."/><meta name="DC.Relation" scheme="URI" content="../tutorial_chapter_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_738B44DA98B34B13B2B78361B78EC315"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Connect to the Cluster Using GFXD and Pulse</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_738B44DA98B34B13B2B78361B78EC315"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div></td></tr></tbody></table>
+
+	<h1 class="title topictitle1">Connect to the Cluster Using GFXD and Pulse</h1>
+
+	
+	<div class="body conbody"><p class="shortdesc"><samp class="ph codeph">gfxd</samp> implements a command-line tool that is
+		based on the Apache Derby ij tool. You can use <samp class="ph codeph">gfxd</samp> to
+		connect to a GemFire XD cluster and run scripts or interactive queries.
+		You execute gfxd using the <samp class="ph codeph">gfxd</samp> or
+			<samp class="ph codeph">gfxd.bat</samp> script. </p>
+
+		<div class="p" id="concept_738B44DA98B34B13B2B78361B78EC315__p_34EF8D0ED99E4BED9F2CE0174209B127">
+			<strong class="ph b">Procedure </strong>
+			<ol class="ol" id="concept_738B44DA98B34B13B2B78361B78EC315__ol_88A649AA267449FEB06B74847C4E8947">
+				<li class="li" id="concept_738B44DA98B34B13B2B78361B78EC315__li_B4CFFFEEBB71441BB5B77350B55B1DEA">In the same command prompt or terminal window in
+					which you started the GemFire XD cluster, change to the
+						<span class="ph filepath">quickstart</span> directory: <pre class="pre codeblock">$ <strong class="ph b">cd <var class="keyword varname">path-to-gemfirexd-installation</var>/quickstart</strong></pre>
+
+					<p class="p">Substitute <var class="keyword varname">path-to-gemfirexd-installation</var> with the actual
+						path to your GemFire XD installation. The <span class="ph filepath">quickstart</span>
+						directory contains example SQL script files that you will use later in the
+						tutorial. </p>
+
+				</li>
+
+				<li class="li" id="concept_738B44DA98B34B13B2B78361B78EC315__li_B7C78918A05547409208E4B1457D2513">Start an
+					interactive <samp class="ph codeph">gfxd</samp> session: <pre class="pre codeblock">$ <strong class="ph b">gfxd</strong>
+gfxd version 1.4.0
+gfxd&gt; </pre>
+
+					<p class="p" id="concept_738B44DA98B34B13B2B78361B78EC315__p_A3F0369351F94E4DA6DFE86022E36637">This command
+						starts the interactive shell and displays the prompt:
+							<samp class="ph codeph">gfxd&gt;</samp>. </p>
+
+				</li>
+
+				<li class="li" id="concept_738B44DA98B34B13B2B78361B78EC315__li_B172B980F86C457C850ECCB8927E9B65">Print a brief list
+					of the available <samp class="ph codeph">gfxd </samp> commands:
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">help;</strong></pre>
+
+				</li>
+
+				<li class="li" id="concept_738B44DA98B34B13B2B78361B78EC315__li_6A7A070CE81843EDB3330BF50A53A484">To connect to the GemFire XD cluster using the JDBC
+					thin client driver, use the <samp class="ph codeph">connect client</samp> command and specify
+					the host and port number of the GemFire XD locator: <pre class="pre codeblock">gfxd&gt; <strong class="ph b">connect client 'localhost:1527';</strong></pre>
+
+					<p class="p">Notice that GemFire XD does not have the concept of a "database". When you
+						connect to a GemFire XD cluster, the distributed system that you connect to
+						is defined by the locator (or alternately, the <a class="xref noPageCitation" href="../../reference/configuration/ConnectionAttributes.html#jdbc_connection_attributes__section_D36B36A02AE840C7B4787C41908CEFB8">mcast-port</a>) specified in the JDBC, ODBC, or
+						ADO.NET connection. </p>
+
+				</li>
+
+				<li class="li" id="concept_738B44DA98B34B13B2B78361B78EC315__li_EDF0FAE3C5AC4402ADCBEE0C068EA0A9">Use the following command to view tables in the
+					"sys" schema: <pre class="pre codeblock">gfxd&gt; <strong class="ph b">show tables in sys;</strong>
+TABLE_SCHEM      |TABLE_NAME                    |REMARKS            
+--------------------------------------------------------------------
+SYS              |ASYNCEVENTLISTENERS           |                   
+SYS              |GATEWAYRECEIVERS              |                   
+SYS              |GATEWAYSENDERS                |                   
+SYS              |SYSALIASES                    |                   
+SYS              |SYSCHECKS                     |                   
+SYS              |SYSCOLPERMS                   |                   
+SYS              |SYSCOLUMNS                    |                   
+SYS              |SYSCONGLOMERATES              |                   
+SYS              |SYSCONSTRAINTS                |                   
+SYS              |SYSDEPENDS                    |                   
+SYS              |SYSDISKSTORES                 |                   
+SYS              |SYSFILES                      |                   
+SYS              |SYSFOREIGNKEYS                |                   
+SYS              |SYSHDFSSTORES                 |                   
+SYS              |SYSKEYS                       |                   
+SYS              |SYSROLES                      |                   
+SYS              |SYSROUTINEPERMS               |                   
+SYS              |SYSSCHEMAS                    |                   
+SYS              |SYSSTATEMENTS                 |                   
+SYS              |SYSSTATISTICS                 |                   
+SYS              |SYSTABLEPERMS                 |                   
+SYS              |SYSTABLES                     |                   
+SYS              |SYSTRIGGERS                   |                   
+SYS              |SYSVIEWS                      |                   
+
+24 rows selected</pre>
+
+					<p class="p">You will use information from many of these tables to view information and
+						statistics about a working GemFire XD cluster. </p>
+
+				</li>
+
+				<li class="li" id="concept_738B44DA98B34B13B2B78361B78EC315__li_77BF1A671665454CB1BFFADDDAAA2D9F">The sys.members table stores information about the
+					GemFire XD members. Execute the following query to see the unique ID assigned to
+					the two GemFire XD servers and the locator that you started:
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select id from sys.members;</strong>
+ID                                                                             
+-------------------------------------------------------------------------------
+192.168.125.147(39598)&lt;v2&gt;:23162                                               
+192.168.125.147(39486)&lt;v1&gt;:40258                                               
+192.168.125.147(39381)&lt;v0&gt;:50344                                               
+
+3 rows selected</pre>
+
+					The output displays the member process ID that is also logged when you start the
+					members at the command line (42528, 41456, and 42051 in this tutorial example). </li>
+
+				<li class="li">You can also connect to the GemFire XD Pulse application, which runs in an
+					embedded Web server on the locator member.  Open a browser and access the URL
+					http://localhost:7075/pulse. Enter "admin" for both the username and password
+					and click Sign In:<img class="image" id="concept_738B44DA98B34B13B2B78361B78EC315__image_e13_w23_wl" src="../../common/images/tutorial-pulse-login.png"/></li>
+
+				<li class="li">On the main Cluster View window, click the machine node to display the three
+					GemFire XD members running on localhost:<img class="image" id="concept_738B44DA98B34B13B2B78361B78EC315__image_pfh_x23_wl" src="../../common/images/tutorial-pulse-cluster.png"/><p class="p">See <a class="xref" href="../../manage_guide/pulse/chapter_overview.html#concept_600D5DC7303548BB96F5E3D1941C77C2" title="GemFire XD Pulse is a Web Application that provides a graphical dashboard for monitoring vital, real-time health and performance of GemFire XD clusters, members, and tables.">GemFire XD Pulse</a> for more information about the available pulse views.</p>
+</li>
+
+			</ol>
+
+		</div>
+
+	</div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

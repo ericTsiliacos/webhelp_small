@@ -1,0 +1,229 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This procedure describes how to install the GemFire XD software on a single computer or VM, for either a peer client or client/server deployments. Repeat the procedure to install GemFire XD on each ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Windows/Linux: Install GemFire XD from a ZIP File"/><meta name="abstract" content="This procedure describes how to install the GemFire XD software on a single computer or VM, for either a peer client or client/server deployments. Repeat the procedure to install GemFire XD on each physical or virtual machine where you want to run a GemFire XD member."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This procedure describes how to install the GemFire XD software on a single computer or VM, for either a peer client or client/server deployments. Repeat the procedure to install GemFire XD on each physical or virtual machine where you want to run a GemFire XD member."/><meta name="DC.subject" content="GemFire XD 1.4 ZIP installation windows"/><meta name="keywords" content="GemFire XD 1.4 ZIP installation windows"/><meta name="DC.Relation" scheme="URI" content="../topics/install_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_BAA7A69E48334B9EA7864CC550303421"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Windows/Linux: Install GemFire XD from a ZIP File</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_BAA7A69E48334B9EA7864CC550303421"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/install_intro.html" title="You can install GemFire for production use from a downloaded RPM file (RHEL only) or from a downloaded ZIP file (Windows or RHEL). Pivotal also provides a Debian package and Homebrew packages for development with Ubuntu and Mac OSX. The following sections describe how to install the standalone GemFire XD product using a downloaded RPM file, ZIP file, Debian package, or Homebrew package.">Installing GemFire XD</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/install_intro.html" title="You can install GemFire for production use from a downloaded RPM file (RHEL only) or from a downloaded ZIP file (Windows or RHEL). Pivotal also provides a Debian package and Homebrew packages for development with Ubuntu and Mac OSX. The following sections describe how to install the standalone GemFire XD product using a downloaded RPM file, ZIP file, Debian package, or Homebrew package."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Installing GemFire XD</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Windows/Linux: Install GemFire XD from a ZIP File</h1>
+ 
+   
+   
+  <div class="body conbody"><p class="shortdesc"> This procedure describes how to install the GemFire XD software on a single computer
+		or VM, for either a peer client or client/server deployments. Repeat the procedure to
+		install GemFire XD on each physical or virtual machine where you want to run a GemFire XD
+		member. </p>
+
+		<div class="section">
+			<ul class="ul" id="concept_BAA7A69E48334B9EA7864CC550303421__ul_a3c_ldk_3p">
+				<li class="li"><a class="xref" href="#concept_BAA7A69E48334B9EA7864CC550303421__section_kny_wdk_3p">Prerequisites</a></li>
+
+				<li class="li"><a class="xref" href="#concept_BAA7A69E48334B9EA7864CC550303421__section_EFF82186C50148B4AA4F894206C95D7C">Procedure</a></li>
+
+				<li class="li"><a class="xref" href="#concept_BAA7A69E48334B9EA7864CC550303421__section_dzc_sdk_3p">Post-Install Configuration for ZIP File Installations</a></li>
+
+				<li class="li"><a class="xref" href="#concept_BAA7A69E48334B9EA7864CC550303421__section_F6CC0645D57E44AD8E8F45F55ECDB169">Obtaining Modified Open Source Code Libraries</a></li>
+
+			</ul>
+
+		</div>
+
+		<div class="section" id="concept_BAA7A69E48334B9EA7864CC550303421__section_kny_wdk_3p"><h2 class="title sectiontitle">Prerequisites</h2>
+			
+			<ol class="ol" id="concept_BAA7A69E48334B9EA7864CC550303421__ol_4D102B3D3FB84D2599475111FE46B727">
+				<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_77454C94B7984BF391D50BD6331E2E1B">Confirm that your system meets the
+					hardware and software requirements described in <a class="xref" href="system_requirements.html#concept_system-requirements" title="This topic describes the supported configurations and system requirements for GemFire XD.">Supported Configurations and System Requirements</a>.
+				</li>
+
+			</ol>
+
+		</div>
+ 
+	 <div class="section" id="concept_BAA7A69E48334B9EA7864CC550303421__section_EFF82186C50148B4AA4F894206C95D7C"><h2 class="title sectiontitle">Procedure</h2>
+			
+			<div class="p">
+				<ol class="ol" id="concept_BAA7A69E48334B9EA7864CC550303421__ol_DE621820C27A4D10B4B5698F58626CF2">
+					<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_F97833C3CC0340F5974F27249A32C84B">From the <a class="xref" href="https://network.pivotal.io/products/gemfirexd" target="_blank">Pivotal
+							GemFire XD download page</a>, select <strong class="ph b">Pivotal GemFire XD</strong>. From
+						the GemFire XD download page, download the
+								<span class="ph filepath">Pivotal_GemFireXD_<var class="keyword varname">XXX</var>_b<var class="keyword varname">NNNNN</var>_<var class="keyword varname">platform</var>.zip</span>
+						file where <var class="keyword varname">XXX</var> corresponds to the product version,
+							<var class="keyword varname">NNNNN</var> corresponds to the product build number, and
+							<var class="keyword varname">platform</var> refers to the operating system (Linux or
+						Windows). </li>
+
+					<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_EAC27A486CD74CFEB8D34A8C79C52A39">Change to the directory where you
+						downloaded the GemFire XD software, and unzip the ZIP file: <ul class="ul" id="concept_BAA7A69E48334B9EA7864CC550303421__ul_EDDCCEFFBFBC4948AD565E4ADF7F68D9">
+							<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_BF54C9B8260241FBAB8C76BB17488AB0"><strong class="ph b">Windows:</strong> Open the
+								.zip file, and extract the product files to the desired installation
+								location on your machine. </li>
+
+							<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_A339E66D6F1E4CCBABFD8FE8767FD45D"><strong class="ph b">UNIX and Linux (Bourne and Korn shells - sh,
+									ksh, bash)</strong>. If you are using the command line, type the
+								following command:
+								<pre class="pre codeblock">$ unzip Pivotal_GemFireXD_<em class="ph i">XXX</em>_b<em class="ph i">NNNNN</em>_Linux.zip -d <em class="ph i">path_to_product</em></pre>
+
+								where <em class="ph i">XXX</em> corresponds to the product version of GemFire XD
+								that you are installing, b<em class="ph i">NNNNN</em> corresponds to the build
+								number of the software, and <em class="ph i">path_to_product</em> corresponds to
+								the location where you want to install GemFire XD. For example:
+								<pre class="pre codeblock">$ unzip Pivotal_GemFireXD_140_b48613_Linux.zip -d /opt/pivotal/gemfirexd</pre>
+
+								Alternatively, unzip the .zip file using another ZIP extraction tool
+								suitable for your operating system. </li>
+
+						</ul>
+
+					</li>
+
+					<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_16F3F86B30564933ABA93239AA0921C4">Add the GemFire XD
+							<span class="ph filepath">bin</span> directory to your path. For example: <ul class="ul" id="concept_BAA7A69E48334B9EA7864CC550303421__ul_kpk_2dt_24">
+							<li class="li"><strong class="ph b">Windows:</strong><pre class="pre codeblock">set path=%path%:c:\Pivotal_GemFireXD_140_b48613_Windows\bin</pre>
+</li>
+
+							<li class="li"><strong class="ph b">Linux:</strong><pre class="pre codeblock">export PATH=$PATH:/opt/pivotal/gemfirexd/Pivotal_GemFireXD_140_b48613_Linux/bin</pre>
+</li>
+
+						</ul>
+The <span class="keyword cmdname">gfxd</span> script automatically sets the class path
+						relative to the installation directory. </li>
+
+					<li class="li">GemFire XD requires libraries from Pivotal HD Enterprise in order to create
+						HDFS tables or use the MapReduce API. If you require HDFS integration
+						features, use the <span class="ph filepath">create_hdfsclient_dist.sh</span> script to
+						create a ZIP file of the necessary libraries, which you can then add to the
+						local GemFire XD installation. Follow these steps to use the script:<ol class="ol" type="a" id="concept_BAA7A69E48334B9EA7864CC550303421__ol_ss2_hhr_g4">
+							<li class="li">Copy the <span class="ph filepath">create_hdfsclient_dist.sh</span> script to a machine that has a
+								Pivotal HD installation. The script is installed with GemFire XD in
+								the <span class="ph filepath">\bin</span> subdirectory where you installed the
+								product (for example,
+									<span class="ph filepath">c:\Pivotal_GemFireXD_140_b48613_Windows\bin\create_hdfsclient_dist.sh</span>.</li>
+
+							<li class="li">Execute the <span class="ph filepath">create_hdfsclient_dist.sh</span> on the
+								Pivotal HD
+									machine:<pre class="pre codeblock">$ ./create_hdfsclient_dist.sh</pre>
+<p class="p">The
+									script packages the necessary library files into a ZIP file
+									named <span class="ph filepath">gfxd_hdfsclient_dist.zip</span> in the
+									directory where you executed the script.</p>
+</li>
+
+							<li class="li">Copy the <span class="ph filepath">gfxd_hdfsclient_dist.zip</span> back to the
+								machine where you installed GemFire XD.</li>
+
+							<li class="li">Unzip the <span class="ph filepath">gfxd_hdfsclient_dist.zip</span> file's contents into the
+									<span class="ph filepath">\ext-lib</span> subdirectory of the GemFire XD
+								installation (for example,
+									<span class="ph filepath">c:\Pivotal_GemFireXD_140_b48613_Windows\ext-lib</span>).
+								GemFire XD will now automatically load the necessary Pivotal HD
+								libraries when you start the local member.</li>
+
+						</ol>
+</li>
+
+					<li class="li" id="concept_BAA7A69E48334B9EA7864CC550303421__li_B6EC798229A74EDF89E453F9BC49E140">Repeat this procedure to install
+						GemFire XD on each different computer where you want to run a GemFire XD
+						member. </li>
+
+					<li class="li">Verify the local installation by executing the <samp class="ph codeph">gfxd version</samp> command. You
+						should receive output showing that GemFire XD is installed, similar
+						to:<pre class="pre codeblock">$ <strong class="ph b">gfxd version</strong>
+GemFireXD product directory: C:\Pivotal_GemFireXD_140Beta_b49442_Windows
+Java version:   1.4.0.Beta build 49442 10/30/2014 19:54:12 PDT javac 1.6.0_26
+Native version: gemfirexd native code unavailable
+Running on: <var class="keyword varname">hostname</var>/<var class="keyword varname">ip-address</var>, 4 cpu(s), amd64 Windows 7 6.1</pre>
+</li>
+
+				</ol>
+
+			</div>
+
+		</div>
+
+		<div class="section" id="concept_BAA7A69E48334B9EA7864CC550303421__section_dzc_sdk_3p"><h2 class="title sectiontitle">Post-Install Configuration for ZIP File Installations</h2>
+			
+			<p class="p">Although the GemFire XD software is installed on each machine, you must perform
+				additional steps to configure and run GemFire XD member(s) on the machine:</p>
+
+			<ol class="ol" id="concept_BAA7A69E48334B9EA7864CC550303421__ol_v1p_mgc_3p">
+				<li class="li">Follow the instructions in <a class="xref" href="../../deploy_guide/Topics/deployment_planning.html#concept_35EEA7752A3C419E9B755F9B8F04E1DD" title="Work with your host system administrators to plan your overall deployment strategy. Create a detailed list of the machines and communication ports that your GemFire XD peer and server members will use. Your deployment decisions determine how servers and peers find each other and distribute data in the cluster.">Steps to Plan and Configure a GemFire XD Deployment</a> to configure one or more GemFire XD members on each machine, and to start
+					those members in a new distributed system.</li>
+
+				<li class="li">If you configured Kerberos for security with Pivotal HD, follow the instructions
+					in <a class="xref" href="../../disk_storage/persist-hdfs-topics.html#topic_v5l_3nn_ml" title="GemFire XD supports the Pivotal HD Enterprise Hadoop implementation for persisting table data to HDFS. If you have configured Pivotal HD with Kerberos for secure HDFS, then you must perform additional steps to ensure that each GemFire XD member can authenticate with Kerberos, and has permission to write table data to the HDFS store. The specific configuration requirements for secure HDFS differ depending on whether you installed GemFire XD as a component of Pivotal HD (using the Pivotal Command Center CLI) or you installed GemFire XD as a standalone product outside of Pivotal HD (using either the RPM or ZIP file distribution).">Configuration Requirements for Secure HDFS</a>
+					to ensure that your GemFire XD members can authenticate with Pivotal HD and
+					persist table data in HDFS.</li>
+
+				<li class="li">If you intend to use HAWQ to to access data from HDFS-persistent GemFire XD
+					tables, follow the instructions in <a class="xref" href="../../disk_storage/persist-hdfs-topics.html#topic_129A066463A942FDA36B6DF8D2AB737A" title="GemFire XD stores all table data in HDFS in a format that is native to the GemFire XD product, in order to provide read/write access from GemFire XD clients. In addition to the input/output system used to support standard Hadoop MapReduce, GemFire XD supports a PXF Driver (installed with HAWQ) to enable Pivotal HAWQ to read HDFS table data. To access GemFire XD HDFS table data in HAWQ, you use the HAWQ CREATE EXTERNAL TABLE command to map the columns that you want to query.">Using HAWQ to Access HDFS Table Data</a> to ensure that the Pivotal Extension Framework (PXF) includes the
+						<span class="ph filepath">gemfirexd.jar</span> library in its list of dependencies.</li>
+
+			</ol>
+
+		</div>
+ 
+	 <div class="section" id="concept_BAA7A69E48334B9EA7864CC550303421__section_F6CC0645D57E44AD8E8F45F55ECDB169"><h2 class="title sectiontitle">Obtaining Modified Open Source Code Libraries</h2> 
+		 
+		<p class="p"> Many open source licenses require that vendors who use or modify
+		  their libraries make that code available. 
+		</p>
+ 
+		<p class="p">To obtain the open source code libraries modified in GemFire XD, visit the product download
+				page, and select the <strong class="ph b">Open Source</strong> tab. Download the
+						<span class="ph filepath">Pivotal_GemFireXD_<var class="keyword varname">XXX</var>_b<var class="keyword varname">NNNNN</var>_OSS.zip</span>
+				file (where <var class="keyword varname">XXX</var> corresponds to the product version of GemFire XD
+				that you are installing and b<var class="keyword varname">NNNNN</var> corresponds to the build
+				number of the software.) Download and read the associated disclosure information
+				(.txt) file from the same download page. </p>
+ 
+		<p class="p">The .zip file contains both the original open source libraries and the
+		  modified source libraries. 
+		</p>
+ 
+	 </div>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/install_intro.html" title="You can install GemFire for production use from a downloaded RPM file (RHEL only) or from a downloaded ZIP file (Windows or RHEL). Pivotal also provides a Debian package and Homebrew packages for development with Ubuntu and Mac OSX. The following sections describe how to install the standalone GemFire XD product using a downloaded RPM file, ZIP file, Debian package, or Homebrew package."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Installing GemFire XD</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

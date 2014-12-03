@@ -1,0 +1,227 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="By default GemFire XD replicates tables to members of the cluster. In this tutorial you create new tables that are replicated the GemFire XD cluster. Procedure In the same gfxd session, run the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Create Replicated Tables and Execute Queries"/><meta name="abstract" content="By default GemFire XD replicates tables to members of the cluster. In this tutorial you create new tables that are replicated the GemFire XD cluster."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="By default GemFire XD replicates tables to members of the cluster. In this tutorial you create new tables that are replicated the GemFire XD cluster."/><meta name="DC.Relation" scheme="URI" content="../tutorial_chapter_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_1E625755F74F493BBCEBCF44F6347A15"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Create Replicated Tables and Execute Queries</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_1E625755F74F493BBCEBCF44F6347A15"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Create Replicated Tables and Execute Queries</h1>
+ 
+   
+  <div class="body conbody"><p class="shortdesc">By default GemFire XD replicates tables to members of the cluster. In this tutorial you
+		create new tables that are replicated the GemFire XD cluster. </p>
+ 
+	 <div class="p">
+			<strong class="ph b">Procedure</strong>
+			<ol class="ol" id="concept_1E625755F74F493BBCEBCF44F6347A15__ol_1CAC9EE895AA4EB887E9CE8EFC4F16FD">
+				<li class="li" id="concept_1E625755F74F493BBCEBCF44F6347A15__li_93766ADA2B39454B9CCEF11632078CE6">In the same <span class="keyword cmdname">gfxd</span>
+					session, run the <span class="ph filepath">ToursDB_schema.sql</span> script to create the
+					tables associated with the ToursDB sample database: <pre class="pre codeblock">gfxd&gt; <strong class="ph b">run 'ToursDB_schema.sql';</strong></pre>
+
+					<p class="p" id="concept_1E625755F74F493BBCEBCF44F6347A15__p_F1DD49ACB32B4753B8C03C3A98248E37">You see DDL output such as: </p>
+
+					<pre class="pre codeblock">CREATE TABLE AIRLINES
+   (
+      AIRLINE CHAR(2) NOT NULL CONSTRAINT AIRLINES_PK PRIMARY KEY,
+      AIRLINE_FULL VARCHAR(24),
+      BASIC_RATE DOUBLE PRECISION,
+      DISTANCE_DISCOUNT DOUBLE PRECISION,
+      BUSINESS_LEVEL_FACTOR DOUBLE PRECISION,
+      FIRSTCLASS_LEVEL_FACTOR DOUBLE PRECISION,
+      ECONOMY_SEATS INTEGER,
+      BUSINESS_SEATS INTEGER,
+      FIRSTCLASS_SEATS INTEGER
+   );
+0 rows inserted/updated/deleted
+gfxd&gt; -- ************************************************************\
+[...]</pre>
+
+				</li>
+
+				<li class="li" id="concept_1E625755F74F493BBCEBCF44F6347A15__li_FE76764EB9F14FDDB56EBE1C3149FA32">Run the
+						<span class="ph filepath">loadTables.sql</span> script to populate the tables with data: <pre class="pre codeblock">gfxd&gt; <strong class="ph b">run 'loadTables.sql';</strong></pre>
+
+					<div class="p">The script output completes with:
+						<pre class="pre codeblock">gfxd&gt; insert into FLIGHTAVAILABILITY values ('US1357',2,'2004-04-18',0,0,3);
+1 row inserted/updated/deleted</pre>
+
+					</div>
+
+				</li>
+
+				<li class="li" id="concept_1E625755F74F493BBCEBCF44F6347A15__li_49F2CBDAE5E54C0DAE8633180F940340">Enter the following command to show the
+					table names that you created (tables in the APP schema):
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">show tables in APP;</strong>
+TABLE_SCHEM      |TABLE_NAME                    |REMARKS            
+--------------------------------------------------------------------
+APP              |AIRLINES                      |                   
+APP              |CITIES                        |                   
+APP              |COUNTRIES                     |                   
+APP              |FLIGHTAVAILABILITY            |                   
+APP              |FLIGHTS                       |                   
+APP              |FLIGHTS_HISTORY               |                   
+APP              |MAPS                          |                   
+
+7 rows selected</pre>
+
+				</li>
+
+				<li class="li" id="concept_1E625755F74F493BBCEBCF44F6347A15__li_FAF6AB298DAC4C38AAA75BBEED4DC878">
+					<p class="p">The new tables that you create and the data that you load are replicated on
+						the two GemFire XD servers by default. You can check whether tables are
+						partitioned or replicated by querying information in sys.systables. Use the
+						following query to check the data policy that GemFire XD has assigned to the
+						tables you just created: </p>
+
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select tablename, datapolicy from sys.systables where tableschemaname='APP';</strong>
+TABLENAME                                                     |DATAPOLICY     
+------------------------------------------------------------------------------
+FLIGHTS_HISTORY                                               |REPLICATE      
+MAPS                                                          |REPLICATE      
+FLIGHTAVAILABILITY                                            |REPLICATE      
+FLIGHTS                                                       |REPLICATE      
+CITIES                                                        |REPLICATE      
+COUNTRIES                                                     |REPLICATE      
+AIRLINES                                                      |REPLICATE      
+
+7 rows selected</pre>
+
+					<p class="p">The output shows that each of the ToursDB tables that you created are
+						replicated. GemFire XD replicates tables by default if you do not use the
+							<span class="keyword cmdname">PARTITION BY</span> clause in the <span class="keyword cmdname">CREATE
+							TABLE</span> statement. </p>
+
+					<p class="p"><a class="xref" href="../../data_management/partitioning.html#concept_08031D9C1AEA48F1B4B021CA1BE3ABF5" title="Horizontal partitioning involves spreading a large data set (many rows in a table) across members in a cluster. GemFire XD uses a variant of the consistent hash algorithm to help ensure that data is uniformly balanced across all members of the target server group.">Partitioning Tables</a> and <a class="xref" href="../../data_management/replicating.html#concept_EBDC9C1A5EA54B868475D540581D6F88" title="GemFire XD server groups control which GemFire XD data store members replicate the table's data. GemFire XD replicates table data both when a new table is initialized in a cluster and when replicated tables are updated.">Replicating Tables</a> provide more information
+						about creating tables in GemFire XD. </p>
+
+				</li>
+
+				<li class="li" id="concept_1E625755F74F493BBCEBCF44F6347A15__li_B6FC13743DAB449B8BB66BC9A285630B">
+					<p class="p">You can also use the used the distributed system ID function,
+							<samp class="ph codeph">dsid()</samp>, to determine which member IDs host a particular
+						table: </p>
+
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select distinct dsid() as id from flights;</strong>
+ID                                                                             
+-------------------------------------------------------------------------------
+192.168.125.147(39598)&lt;v2&gt;:23162                                               
+192.168.125.147(39486)&lt;v1&gt;:40258                                               
+
+2 rows selected</pre>
+
+					In the tutorial, both of the GemFire XD servers store information for each
+					replicated table. </li>
+
+				<li class="li" id="concept_1E625755F74F493BBCEBCF44F6347A15__li_91E471B495C0414AB9B781809F649F3F">GemFire XD provides query features similar to those
+					available in other data management products. For example, the following command
+					executes a simple query: <pre class="pre codeblock">gfxd&gt; <strong class="ph b">SELECT city_name, country, language FROM cities WHERE language LIKE '%ese';</strong>
+CITY_NAME               |COUNTRY                   |LANGUAGE        
+--------------------------------------------------------------------
+Rio de Janeiro          |Brazil                    |Portuguese      
+Sao Paulo               |Brazil                    |Portuguese      
+Hong Kong               |China                     |Chinese         
+Shanghai                |China                     |Chinese         
+Osaka                   |Japan                     |Japanese        
+Tokyo                   |Japan                     |Japanese        
+Lisbon                  |Portugal                  |Portuguese      
+
+7 rows selected</pre>
+
+					<p class="p">The following query executes a join between tables: </p>
+
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">SELECT city_name, countries.country, region, language
+FROM cities, countries
+WHERE cities.country_iso_code = countries.country_iso_code AND language LIKE '%ese';</strong>
+CITY_NAME           |COUNTRY            |REGION               |LANGUAGE     
+----------------------------------------------------------------------------
+Rio de Janeiro      |Brazil             |South America        |Portuguese   
+Sao Paulo           |Brazil             |South America        |Portuguese   
+Hong Kong           |China              |Asia                 |Chinese      
+Shanghai            |China              |Asia                 |Chinese      
+Osaka               |Japan              |Asia                 |Japanese     
+Tokyo               |Japan              |Asia                 |Japanese     
+Lisbon              |Portugal           |Europe               |Portuguese   
+
+7 rows selected</pre>
+
+				</li>
+
+				<li class="li">Although the tables that are created using the script are replicated by default,
+					they are not persistent. Exit the gfxd session and shut down the two data store
+						members:<pre class="pre codeblock">gfxd&gt; <strong class="ph b">exit;</strong>
+$ <strong class="ph b">gfxd server stop -dir=$HOME/server1</strong>
+$ <strong class="ph b">gfxd server stop -dir=$HOME/server2</strong></pre>
+<div class="p">After
+						the servers have stopped, restart them and connect to the distributed
+						system:<pre class="pre codeblock">$ <strong class="ph b">gfxd server start -dir=$HOME/server1 -locators=localhost[10101] -client-port=1528</strong>
+$ <strong class="ph b">gfxd server start -dir=$HOME/server2 -locators=localhost[10101] -client-port=1529</strong>
+$ <strong class="ph b">gfxd</strong>
+gfxd&gt; <strong class="ph b">connect client 'localhost:1527';</strong></pre>
+</div>
+<div class="p">Repeat
+						the query from the previous
+						step:<pre class="pre codeblock">gfxd&gt; <strong class="ph b">SELECT city_name, countries.country, region, language
+FROM cities, countries
+WHERE cities.country_iso_code = countries.country_iso_code AND language LIKE '%ese';</strong>
+CITY_NAME               |COUNTRY                   |REGION                    |LANGUAGE        
+-----------------------------------------------------------------------------------------------
+
+0 rows selected</pre>
+</div>
+<p class="p">The
+						data dictionary is persisted by default, so you can repeat the previous
+						queries; all database objects are still present through a cluster restart.
+						However, table data is not preserved unless you specifically enable
+						persistence when you create the tables. More information is provided in the
+						persistence tutorial.</p>
+</li>
+
+			</ol>
+
+		</div>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

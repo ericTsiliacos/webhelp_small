@@ -1,0 +1,273 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If your operating system is Red Hat Enterprise Linux (RHEL) or CentOS and you installed a previous version of the GemFire XD using the standalone RPM distribution, follow these instructions to perform ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Performing a Manual Upgrade Using the RPM Distribution"/><meta name="abstract" content="If your operating system is Red Hat Enterprise Linux (RHEL) or CentOS and you installed a previous version of the GemFire XD using the standalone RPM distribution, follow these instructions to perform a manual upgrade to GemFire XD 1.4."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If your operating system is Red Hat Enterprise Linux (RHEL) or CentOS and you installed a previous version of the GemFire XD using the standalone RPM distribution, follow these instructions to perform a manual upgrade to GemFire XD 1.4."/><meta name="DC.subject" content="GemFire XD rpm upgrade, GemFire XD rpm upgrading, GemFire XD rpm upgrading to 1.4, GemFire XD migrate"/><meta name="keywords" content="GemFire XD rpm upgrade, GemFire XD rpm upgrading, GemFire XD rpm upgrading to 1.4, GemFire XD migrate"/><meta name="DC.Relation" scheme="URI" content="../topics/upgrade-jar.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_0129F6A1D0EB42C4A3D24861AF2C5425"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Performing a Manual Upgrade Using the RPM Distribution</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x.">Upgrading GemFire XD</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Upgrading GemFire XD</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Performing a Manual Upgrade Using the RPM Distribution</h1>
+ 
+  
+	 
+  <div class="body conbody"><p class="shortdesc">If your operating system is Red Hat Enterprise Linux (RHEL) or CentOS and you installed
+		a previous version of the GemFire XD using the standalone RPM distribution, follow these
+		instructions to perform a manual upgrade to GemFire XD 1.4. </p>
+ 
+	 <div class="section" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__section_0542F0A6358D4622858338C7620E18A4">
+			<div class="note note"><span class="notetitle">Note:</span> These upgrade instructions require you to shut down the entire distributed system
+				before upgrading individual GemFire XD members. If you want to want to upgrade
+				individual members without shutting down the entire distributed system, follow the
+				instructions in <a class="xref" href="../rolling_upgrade.html#concept_FBBBC26ADD98482EABB9AB01A14F895E" title="A rolling upgrade enables you to keep your existing distributed system running while you upgrade members.">Performing a Rolling Upgrade</a>
+				instead.</div>
+ 
+		<p class="p">When you upgrade GemFire XD from RPM, the new software is installed by default into
+						<span class="ph filepath">/opt/pivotal/gemfirexd/GemFireXD_<var class="keyword varname">XX</var></span>
+				where <var class="keyword varname">XX</var> corresponds to the version of GemFire XD (for example,
+					<span class="ph filepath">GemFireXD_140</span>) that you have installed. No files are
+				overwritten during the upgrade process. </p>
+ 
+	 </div>
+ 
+	 <div class="section" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__section_B7EABDDDA7B94F2DBB0E1C6D98FFECBD"><h2 class="title sectiontitle">Prerequisites</h2> 
+		 
+		<ul class="ul" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ul_4E1DAA561DED4B52BCA4E3DE87E715E8">
+				<li class="li">Thoroughly test your development systems with the new version before moving into
+					production. </li>
+ 
+		  <li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_77454C94B7984BF391D50BD6331E2E1B">Confirm that your system meets the hardware and
+					software requirements described in <a class="xref" href="system_requirements.html#concept_system-requirements" title="This topic describes the supported configurations and system requirements for GemFire XD.">Supported Configurations and System Requirements</a>. </li>
+
+				<li class="li">Review the items listed in <a class="xref" href="upgrade_from.html#concept_0129F6A1D0EB42C4A3D24861AF2C5425" title="This section provides information you need to know before you begin to upgrade Pivotal GemFire XD.">Before You Upgrade</a> to
+					understand restrictions or special steps that you might need to take in order to
+					upgrade your system.</li>
+
+				<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_BFE3B7594B804B93A96ACE2A33C54B47">From the <a class="xref" href="https://network.pivotal.io/products/gemfirexd" target="_blank">Pivotal GemFire XD download page</a>,
+					select <strong class="ph b">Pivotal GemFire XD</strong>. Download the Pivotal GemFire XD RPM
+					appropriate for your RHEL operating system:<ul class="ul" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ul_62E4507944244D72B945AAAF6B6EC068">
+						<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_364FFDE62E444CC18A1063E91BCF529A">RHEL 5:
+								<samp class="ph codeph">pivotal-gemfirexd-1.4.0-48613.el5.noarch.rpm</samp>
+						</li>
+
+						<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_F6DCAFA63C4F4C33ADEDAC703C8E11A6">RHEL 6:
+								<samp class="ph codeph">pivotal-gemfirexd-1.4.0-48613.el6.noarch.rpm</samp>
+						</li>
+
+					</ul>
+
+				</li>
+ 
+		</ul>
+ 
+	 </div>
+ 
+	 <div class="section" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__section_D3326496B2BB47A7AB0CFC1A5E266842"><h2 class="title sectiontitle">Procedure</h2> 
+		
+			<ol class="ol" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ol_E68D8EE5BC324BECA5CE23F76079C07D">
+				<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_FD9F2A681751410E92BCB18745C01E42">Use the <samp class="ph codeph">shut-down-all</samp> and
+						<samp class="ph codeph">locator</samp> commands to stop all GemFire XD 1.3.x members. For
+					example:
+					<pre class="pre codeblock">$ gfxd shut-down-all -locators=localhost[10101]
+$ gfxd locator stop -dir=$HOME/locator</pre>
+
+					In the sample command, substitute the address, port, and working directory of a
+					locator for your GemFire XD 1.3.x distributed system. Ensure that you stop all
+					locators as well as data stores.</li>
+
+				<li class="li">Make backups of all disk store files.</li>
+
+				<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_2A6528CE8DE6425C88E75344F445FBC6">Beginning with machines that host locator members,
+					execute the following <samp class="ph codeph">rpm</samp> command to install the new version of
+					the GemFire XD software. If necessary, use <samp class="ph codeph">sudo</samp> to run the
+					command if you are not logged in as root: <div class="p"><strong class="ph b">RHEL 5:</strong>
+						<pre class="pre codeblock">sudo rpm -Uvh pivotal-gemfirexd-1.4.0-48613.el5.noarch.rpm</pre>
+
+					</div>
+
+					<div class="p"><strong class="ph b">RHEL 6:</strong>
+						<pre class="pre codeblock">sudo rpm -Uvh pivotal-gemfirexd-1.4.0-48613.el6.noarch.rpm</pre>
+
+					</div>
+
+					<p class="p">The <samp class="ph codeph">rpm</samp> command begins the install process, resolves
+						dependencies, and displays the packages it plans to install. </p>
+
+				</li>
+
+				<li class="li">GemFire XD requires libraries from Pivotal HD Enterprise in order to create HDFS
+					tables or use the MapReduce API. If you installed GemFire XD on the same machine
+					as Pivotal HD, then GemFire XD will automatically locate the required libraries
+					in the default locations:<ul class="ul" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ul_cqh_m32_ql">
+						<li class="li"><span class="ph filepath">/usr/lib/gphd/hadoop</span></li>
+
+						<li class="li"><span class="ph filepath">/usr/lib/gphd/hadoop-mapreduce</span></li>
+
+						<li class="li"><span class="ph filepath">/usr/lib/gphd/hadoop-hdfs/</span></li>
+
+					</ul>
+<div class="p">If you installed GemFire XD on a machine that does not have a Pivotal HD
+						installation, then you can use the
+							<span class="ph filepath">create_hdfsclient_dist.sh</span> script to create a ZIP
+						file of the necessary libraries, which you can then add to the local GemFire
+						XD installation. Follow these steps to use the script:<ol class="ol" type="a" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ol_ss2_hhr_g4">
+							<li class="li">Copy the <span class="ph filepath">create_hdfsclient_dist.sh</span> script to a
+								machine that has a Pivotal HD installation. The script is installed
+								with GemFire XD as
+									<span class="ph filepath">/opt/pivotal/gemfirexd/bin/create_hdfsclient_dist.sh</span>.</li>
+
+							<li class="li">Execute the <span class="ph filepath">create_hdfsclient_dist.sh</span> on the
+								Pivotal HD
+									machine:<pre class="pre codeblock">$ ./create_hdfsclient_dist.sh</pre>
+<p class="p">The
+									script packages the necessary library files into a ZIP file
+									named <span class="ph filepath">gfxd_hdfsclient_dist.zip</span> in the
+									directory where you executed the script.</p>
+</li>
+
+							<li class="li">Copy the <span class="ph filepath">gfxd_hdfsclient_dist.zip</span> back to the
+								machine where you installed GemFire XD.</li>
+
+							<li class="li">Unzip the <span class="ph filepath">gfxd_hdfsclient_dist.zip</span> file's
+								contents into the
+									<span class="ph filepath">/opt/pivotal/gemfirexd/ext-lib</span> directory.
+								GemFire XD will now automatically load the necessary Pivotal HD
+								libraries when you start the local member.</li>
+
+						</ol>
+</div>
+</li>
+
+				<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_BBF8AEB660E245C48E07367AC6384044">Start the GemFire XD member process on the local
+					machine or VM using the new GemFire XD software. This process automatically
+					upgrades the disk store files as necessary.</li>
+
+				<li class="li">Repeat these steps as necessary to upgrade other members running on other machines or VMs
+					(locators first, followed by data stores and accessors).</li>
+
+				<li class="li">After the distributed system is running, use your modified DDL SQL scripts to recreate
+					stored procedure and listener implementations, using the new
+						<samp class="ph codeph">com.pivotal.gemfirexd</samp> package names. (See Step 1 above.)
+					For example, to srestore the sample DBSynchronizer configuration described in
+					Step
+					1:<pre class="pre codeblock">gfxd&gt; create asynceventlistener testlistener
+&gt; (
+&gt; listenerclass 'com.pivotal.gemfirexd.callbacks.DBSynchronizer' 
+&gt; initparams 
+&gt;   'com.mysql.jdbc.Driver,jdbc:mysql://localhost:3306/gfxddb,SkipIdentityColumns=true,user=gfxduser,secret=25325ffc3345be8888eda8156bd1c313' 
+&gt; )
+&gt; server groups (dbsync);
+gfxd&gt; alter table mytable set asynceventlistener (testlistener);
+gfxd&gt; call sys.start_async_event_listener('TESTLISTENER');</pre>
+</li>
+
+			</ol>
+ 
+	 </div>
+
+		<div class="section"><h2 class="title sectiontitle">Post-Upgrade Instructions</h2>
+			
+			<div class="p">After you upgrade the individual GemFire XD members, perform these steps if you
+				upgraded from SQLFire 1.1.1 or 1.1.2:<ol class="ol" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ol_eqy_hh5_4n">
+					<li class="li">Update all client applications to use the new GemFire XD package names and libraries, then
+						recompile and redeploy those applications:<ul class="ul" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ul_k5m_mhj_g4">
+							<li class="li">Java package names beginning with
+									<samp class="ph codeph">com.vmware.sqlfire</samp> or
+									<samp class="ph codeph">com.pivotal.sqlfire</samp> were changed to
+									<samp class="ph codeph">com.pivotal.gemfirexd</samp> (see the <a class="xref" href="http://gfxd-140.cfapps.io/1.4.0/javadocs/index.html" target="_blank">Javadocs</a>). </li>
+
+							<li class="li">ADO.NET application interfaces were changed to begin with
+									<samp class="ph codeph">Pivotal.Data.GemFireXD</samp> (see <a class="xref" href="../../reference/ado.net/ref-ado-net.html#reference_463035876A144FCDA4A698055ABF8EE0" title="The GemFire XD ADO.NET driver implements Microsoft's ADO.NET interfaces and abstract classes.">ADO.NET API</a>).</li>
+
+							<li class="li">JDBC thin client and peer client applications must use the new JAR
+								file names, <span class="ph filepath">gemfirexd-client.jar</span> and
+									<span class="ph filepath">gemfirexd.jar</span>, to access an upgraded
+								distributed system.</li>
+
+							<li class="li">The ADO.NET client DLL is now installed using an MSI file. See <a class="xref" href="../../developers_guide/topics/gemfirexddotnet/gemfirexd-dotnet-designer-installing.html#ado-net-driver" title="The GemFire XD installation provides an installation program to install and register the GemFire XD.NET client driver DLL, Designer components, and Entity Framework plug-in.">Installing GemFire XD ADO.NET Components</a>.</li>
+
+						</ul>
+</li>
+
+					<li class="li">The JDBC connection string prefix has changed from
+							<samp class="ph codeph">jdbc:sqlfire</samp> to <samp class="ph codeph">jdbc:gemfirexd</samp>. Update
+						any custom or third-party JDBC clients to use the correct connection string
+						format. </li>
+
+					<li class="li">Modify any member startup scripts to use the single
+							<samp class="ph codeph">-heap-size</samp> property instead of
+							<samp class="ph codeph">-initial-heap</samp> and/or <samp class="ph codeph">-max-heap</samp>. The
+							<samp class="ph codeph">gfxd</samp> member startup script no longer support thes
+							<samp class="ph codeph">-initial-heap</samp> and <samp class="ph codeph">-max-heap</samp>
+						properties. See <a class="xref" href="../../reference/gfxd_commands/gfxd-launcher.html#reference_9518856325F74F79B13674B8E060E6C5" title="Use the gfxd command-line utility to launch GemFire XD utilities.">gfxd Launcher Commands</a>.</li>
+
+					<li class="li">GemFire XD now uses a JMX Manager node to provide access to a federated MBean
+						architecture.  Update your GemFire XD member configuration to use the new
+						architecture, and modify JMX clients as necessary to access the new GemFire
+						XD MBeans. See <a class="xref" href="../../manage_guide/jmx/chapter_overview.html#setting_up_logging" title="You can use the Java Management Extensions (JMX) with GemFire XD for additional administrative and monitoring capability.">Using Java Management Extensions (JMX)</a>.</li>
+
+					<li class="li">The --SQLFIRE-PROPERTIES query hint has changed to --GEMFIREXD-PROPERTIES. Modify any
+						scripts that use the older hint.</li>
+
+				</ol>
+</div>
+
+			
+		</div>
+ 
+	 <div class="section" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__section_18F46871D4684C129206AB20DDA612C5"><h2 class="title sectiontitle">What to Do Next</h2> 
+		
+			<ul class="ul" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ul_6C49019F310C4C0B992DC9C19FC07CDD">
+				<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_05C45EEE0D534615A8E17CD44190C1D4">Run the product tutorial and examples.
+					See <a class="xref" href="../tutorial_chapter_intro.html#concept_A14BF60B65314B97BA19EE6C81620CB3" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a>. </li>
+
+				<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_CD3259343A914E75B2D2935C49BBC238">Test your development systems with the
+					new version. </li>
+
+			</ul>
+ 
+	 </div>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Upgrading GemFire XD</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The Group Membership Service (GMS) uses self-defined system membership. Processes can join or leave the distributed system at any time. The GMS communicates this information to every other member in ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Group Membership Service"/><meta name="abstract" content="The Group Membership Service (GMS) uses self-defined system membership. Processes can join or leave the distributed system at any time. The GMS communicates this information to every other member in the system, with certain consistency guarantees. Each member in the group participates in membership decisions, which ensures that either all members see a new member or no members see it."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The Group Membership Service (GMS) uses self-defined system membership. Processes can join or leave the distributed system at any time. The GMS communicates this information to every other member in the system, with certain consistency guarantees. Each member in the group participates in membership decisions, which ensures that either all members see a new member or no members see it."/><meta name="DC.subject" content="GemFire XD group membership service"/><meta name="keywords" content="GemFire XD group membership service"/><meta name="DC.Relation" scheme="URI" content="../topics/systemoverview.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="overviewofgemfirexd"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Group Membership Service</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="overviewofgemfirexd"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster.">Understanding the GemFire XD Distributed System</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Group Membership Service</h1>
+ 
+   
+  
+  <div class="body conbody"><p class="shortdesc">The Group Membership Service (GMS) uses self-defined system
+	 membership. Processes can join or leave the distributed system at any time. The
+	 GMS communicates this information to every other member in the system, with
+	 certain consistency guarantees. Each member in the group participates in
+	 membership decisions, which ensures that either all members see a new member or
+	 no members see it. 
+  </p>
+ 
+	 <div class="section" id="overviewofgemfirexd__KeyConcepts-10"> 
+		<p class="p" id="overviewofgemfirexd__p_303D8151747146879DBAF47E6D634F67">The membership coordinator, a
+		  key component of the GMS, handles "join" and "leave" requests, and also handles
+		  members that are suspected of having left the system. The system automatically
+		  elects the oldest member of the distributed system to act as the coordinator,
+		  and it elects a new one if the member fails or is unreachable. The
+		  coordinator's basic purpose is to relay the current membership view to each
+		  member of the distributed system and to ensure the consistency of the view at
+		  all times. 
+		</p>
+ 
+		<p class="p" id="overviewofgemfirexd__p_19E81BB95C5E4B10BB47B9884AAB5DD7">Because the GemFire XD
+		  distributed system is dynamic, you can add or remove members in a very short
+		  time period. This makes it easy to reconfigure the system to handle added
+		  demand (load).The GMS permits the distributed system to progress under
+		  conditions in which a statically-defined membership system could not. A static
+		  model defines members by host and identity, which makes it difficult to add or
+		  remove members in an active distributed system. The system would have to shut
+		  down partially or completely to expand or contract the number of members that
+		  participate in the system. 
+		</p>
+ 
+		<div class="p">For more information, see: 
+		<ul class="ul" id="overviewofgemfirexd__ul_EA6599E0033F4ADBA26093236290E3C1"> 
+		  <li class="li" id="overviewofgemfirexd__li_BF515BC2668D4CB18D7A51CD3D68021C"><a class="xref" href="../../deploy_guide/Topics/starting-gfxd.html#concept_C08A1CF9A10545E8A230CF2109CAAD03" title="Use the gfxd utility to start servers.">Using gfxd to Start and Stop Members</a>
+			 
+		  </li>
+ 
+		  <li class="li" id="overviewofgemfirexd__li_34C5942803AF488ABE5598D6798FB468"><a class="xref" href="../../deploy_guide/Topics/locator_connecting.html#concept_18CA9DF1A80441A8987A0936BD49F509" title="GemFire XD thin clients specify the client bind address and port of a locator in order to connect to a GemFire XD cluster.">Connect to a Distributed System Using Locators</a>
+			 
+		  </li>
+ 
+		  <li class="li" id="overviewofgemfirexd__li_AB17CF4D438046778CD600E6688AE3ED"><a class="xref" href="../../data_management/rebalancing_pr_data.html#rebalancing_pr_data" title="You can use rebalancing to dynamically increase or decrease your GemFire XD cluster capacity, or to improve the balance of data across the distributed system.">Rebalancing Partitioned Data on GemFire XD Members</a>
+			 
+		  </li>
+ 
+		</ul>
+ 
+		</div>
+ 
+	 </div>
+ 
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

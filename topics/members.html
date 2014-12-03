@@ -1,0 +1,104 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Member processes form a single, logical system, and each member has single-hop access to any other member, with single-hop or no-hop access to data. A GemFire XD member is an instance of the GemFire ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="GemFire XD Members"/><meta name="abstract" content="Member processes form a single, logical system, and each member has single-hop access to any other member, with single-hop or no-hop access to data."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Member processes form a single, logical system, and each member has single-hop access to any other member, with single-hop or no-hop access to data."/><meta name="DC.subject" content="GemFire XD members data stores accessor locator"/><meta name="keywords" content="GemFire XD members data stores accessor locator"/><meta name="DC.Relation" scheme="URI" content="../topics/systemoverview.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="overviewofgemfirexd"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>GemFire XD Members</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="overviewofgemfirexd"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster.">Understanding the GemFire XD Distributed System</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">GemFire XD Members</h1>
+ 
+   
+   
+  <div class="body conbody"><p class="shortdesc">Member processes form a single, logical system, and each member
+	 has single-hop access to any other member, with single-hop or no-hop access to
+	 data. 
+  </p>
+ 
+	 <p class="p"> 
+		A GemFire XD member is an instance of the GemFire XD code that
+		runs in a JVM. A GemFire XD member can optionally host data, provide network
+		server functionality for client connections, and provide location services for
+		the distributed system. 
+	 </p>
+ 
+	 <p class="p">A GemFire XD distributed system is dynamic, and members can be added or
+		removed at any time. The GemFire XD implementation guarantees a consistent view of
+		the distributed system to ensure that data consistency and data integrity are
+		not compromised. 
+	 </p>
+ 
+	 <p class="p" id="overviewofgemfirexd__p_881B844AEE48483BA07323FA3681AC64">Most GemFire XD members are configured to host data, and
+			are referred to as <em class="ph i">data stores</em>. Members that are configured to not host data are
+			referred to as <em class="ph i">accessors</em>. Both data stores and accessors can execute the DDL and
+			DML commands that GemFire XD supports. Data stores provide single-hop or no-hop access to
+			data stored that is stored on members of the distributed system. Accessors provide
+			single-hop access to data stores in the distributed system. </p>
+ 
+	 <p class="p">A third type of member, the standalone 
+		<em class="ph i">locator</em>, does not host data and does not support DDL and DML
+		statements on user-defined tables. You use locators to discover members of the
+		GemFire XD cluster. 
+	 </p>
+ 
+	 <div class="p">For more information, see: 
+	 <ul class="ul" id="overviewofgemfirexd__ul_EA6599E0033F4ADBA26093236290E3C1"> 
+		<li class="li" id="overviewofgemfirexd__li_BF515BC2668D4CB18D7A51CD3D68021C"><a class="xref" href="../../deploy_guide/Topics/c_starting.html#concept_E59777B6063749CC91309D9E6B7BEFB8" title="A GemFire XD server provides connectivity for clients as well as other servers or peers in the cluster.">Starting and Stopping GemFire XD Members</a>
+		  
+		</li>
+ 
+		<li class="li" id="overviewofgemfirexd__li_34C5942803AF488ABE5598D6798FB468"><a class="xref" href="../../deploy_guide/Topics/locator_configuration.html#concept_D19CC0210A5446FC8F3181547203C29C" title="A GemFire XD locator is a process that tells new, connecting peers and thin clients how to connect to peers that are already running. Locators also load balance thin client connections to available GemFire XD members in a client-server deployment.">Using Locators</a> 
+		</li>
+ 
+		<li class="li" id="overviewofgemfirexd__li_4AC67580EB7242C1B3B29AD4746F0CD1"><a class="xref" href="../../deploy_guide/Topics/peer-client-connecting.html#concept_108F15AF6F3E48648CDF3FFDB2C04294" title="The peer client driver class is packaged in com.pivotal.gemfirexd.jdbc.EmbeddedDriver. In addition to the basic JDBC Connection URL, peer client driver connections require one or more boot and/or connection properties to configure the embedded GemFire XD peer process for member discovery and other features.">Peer Client JDBC Driver Connections</a>
+		  
+		</li>
+ 
+	 </ul>
+ 
+	 </div>
+ 
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

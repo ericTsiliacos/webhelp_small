@@ -1,0 +1,300 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In this tutorial you drop all tables in the ToursDB schema and then recreate them using a new partitioning and replication strategy. The ToursDB schema in this tutorial is similar to a 'STAR' schema , ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Implement a Partitioning Strategy"/><meta name="abstract" content="In this tutorial you drop all tables in the ToursDB schema and then recreate them using a new partitioning and replication strategy."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In this tutorial you drop all tables in the ToursDB schema and then recreate them using a new partitioning and replication strategy."/><meta name="DC.Relation" scheme="URI" content="../tutorial_chapter_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_821456C46ABC4710961E8040DF47A354"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Implement a Partitioning Strategy</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_821456C46ABC4710961E8040DF47A354"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Implement a Partitioning Strategy</h1>
+ 
+   
+  <div class="body conbody"><p class="shortdesc">In this tutorial you drop all tables in the ToursDB schema and then recreate them using
+		a new partitioning and replication strategy. </p>
+ 
+	 <p class="p" id="concept_821456C46ABC4710961E8040DF47A354__p_601B15A88C8C48FD9F99125C3C0805A8">The ToursDB schema in this
+		tutorial is similar to a 
+		<a class="xref" href="http://en.wikipedia.org/wiki/Star_schema" target="_blank">'STAR'
+		  schema</a>, having only a few fact tables and several dimension tables.
+		Dimension tables are generally small and change infrequently, but are commonly
+		used in join queries. Dimension tables are good candidates for replicating
+		across GemFire XD members, because join queries can execute in parallel. 
+	 </p>
+ 
+	 <p class="p">The AIRLINES, CITIES, COUNTRIES, and MAPS tables are treated as
+		dimension tables, and are replicated across the GemFire XD cluster. In the
+		tutorial it is assumed that applications frequently join these related tables
+		based on the FLIGHT_ID column, which is chosen as the partitioning column. 
+	 </p>
+ 
+	 <p class="p"> FLIGHTS, FLIGHTS_HISTORY, and FLIGHTAVAILABILITY are fact tables, and
+		they will be partitioned. You will co-locate these tables to ensure that all
+		rows that are associated with FLIGHT_ID are maintained in a single partition.
+		This step ensures that frequent join queries based on a selected flight are
+		pruned to a single member and executed efficiently. 
+	 </p>
+ 
+	 <div class="p"><strong class="ph b">Procedure</strong> 
+	 <ol class="ol" id="concept_821456C46ABC4710961E8040DF47A354__ol_6B5B421468EB450999C92AAF31B1C717"> 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_1A626C7CCACB469E9F310206CA276DAC"> 
+		  <p class="p">In a separate terminal window or GUI editor, open the
+							<span class="ph filepath">create_colocated_schema.sql</span> file in the
+							<span class="ph filepath">/quickstart</span> directory to examine the included DDL
+						commands. The SQL script begins by dropping the existing tables in the
+						schema: </p>
+ 
+		  <pre class="pre codeblock">DROP TABLE AIRLINES;
+DROP TABLE CITIES;
+DROP TABLE COUNTRIES;
+DROP TABLE FLIGHTAVAILABILITY;
+DROP TABLE FLIGHTS;
+DROP TABLE MAPS;
+DROP TABLE FLIGHTS_HISTORY;</pre>
+ 
+		  <p class="p">Dimension tables can be replicated using the same basic CREATE
+			 statement from the preceding section of the tutorial. However, this script
+			 explicitly adds the 
+			 <samp class="ph codeph">REPLICATE</samp> keyword for clarity. For example: 
+		  </p>
+ 
+		  <pre class="pre codeblock">CREATE TABLE AIRLINES
+   (
+      AIRLINE CHAR(2) NOT NULL CONSTRAINT AIRLINES_PK PRIMARY KEY,
+      AIRLINE_FULL VARCHAR(24),
+      BASIC_RATE DOUBLE PRECISION,
+      DISTANCE_DISCOUNT DOUBLE PRECISION,
+      BUSINESS_LEVEL_FACTOR DOUBLE PRECISION,
+      FIRSTCLASS_LEVEL_FACTOR DOUBLE PRECISION,
+      ECONOMY_SEATS INTEGER,
+      BUSINESS_SEATS INTEGER,
+      FIRSTCLASS_SEATS INTEGER
+   ) REPLICATE;</pre>
+ 
+		  <p class="p">The FLIGHTS table is partitioned based on the FLIGHT_ID column: 
+		  </p>
+ 
+		  <pre class="pre codeblock">CREATE TABLE FLIGHTS
+   (
+      FLIGHT_ID CHAR(6) NOT NULL ,
+      SEGMENT_NUMBER INTEGER NOT NULL ,
+      ORIG_AIRPORT CHAR(3),
+      DEPART_TIME TIME,
+      DEST_AIRPORT CHAR(3),
+      ARRIVE_TIME TIME,
+      MEAL CHAR(1),
+      FLYING_TIME DOUBLE PRECISION,
+      MILES INTEGER,
+      AIRCRAFT VARCHAR(6),
+      CONSTRAINT FLIGHTS_PK PRIMARY KEY (
+                            FLIGHT_ID,
+                            SEGMENT_NUMBER),
+      CONSTRAINT MEAL_CONSTRAINT
+          CHECK (meal IN ('B', 'L', 'D', 'S'))
+
+   )
+   PARTITION BY COLUMN (FLIGHT_ID);</pre>
+ 
+		  <p class="p">The remaining facts tables are also partitioned, and are colocated with the FLIGHTS table.
+						For example: </p>
+ 
+		  <pre class="pre codeblock">CREATE TABLE FLIGHTAVAILABILITY
+   (
+      FLIGHT_ID CHAR(6) NOT NULL ,
+      SEGMENT_NUMBER INTEGER NOT NULL ,
+      FLIGHT_DATE DATE NOT NULL ,
+      ECONOMY_SEATS_TAKEN INTEGER DEFAULT 0,
+      BUSINESS_SEATS_TAKEN INTEGER DEFAULT 0,
+      FIRSTCLASS_SEATS_TAKEN INTEGER DEFAULT 0,
+      CONSTRAINT FLIGHTAVAIL_PK PRIMARY KEY (
+                                  FLIGHT_ID,
+                                  SEGMENT_NUMBER,
+                                  FLIGHT_DATE),
+      CONSTRAINT FLIGHTS_FK2 Foreign Key (
+            FLIGHT_ID,
+            SEGMENT_NUMBER)
+         REFERENCES FLIGHTS (
+            FLIGHT_ID,
+            SEGMENT_NUMBER)
+
+   )
+   PARTITION BY COLUMN (FLIGHT_ID)
+   COLOCATE WITH (FLIGHTS);</pre>
+ 
+		</li>
+ 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_67BE8A3C757449FBA860F50DA5D75358"> 
+		  <p class="p" id="concept_821456C46ABC4710961E8040DF47A354__p_8EE22FAE09F24545BCF7B8F2B93E579D">In the 
+			 <samp class="ph codeph">gfxd</samp> session, execute the 
+			 <span class="ph filepath">create_colocated_schema.sql</span> script to drop the
+			 existing tables and recreate them with the new partitioning and replication
+			 strategy. Execute 
+			 <span class="ph filepath">loadTables.sql</span> to populate the tables with data:
+			 
+		  </p>
+ 
+		  <pre class="pre codeblock">gfxd&gt; <strong class="ph b">run 'create_colocated_schema.sql';</strong>
+gfxd&gt; <strong class="ph b">run 'loadTables.sql';</strong></pre>
+ 
+		</li>
+ 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_1DE0B603969E49F99961D1A981452D5D"> 
+		  <p class="p" id="concept_821456C46ABC4710961E8040DF47A354__p_A6E9D4516D09438BAB9337F75DCB3DFB">Confirm that the tables are
+			 created: 
+		  </p>
+ 
+		  <pre class="pre codeblock">gfxd&gt; <strong class="ph b">show tables in APP;</strong>
+TABLE_SCHEM      |TABLE_NAME                    |REMARKS            
+--------------------------------------------------------------------
+APP              |AIRLINES                      |                   
+APP              |CITIES                        |                   
+APP              |COUNTRIES                     |                   
+APP              |FLIGHTAVAILABILITY            |                   
+APP              |FLIGHTS                       |                   
+APP              |FLIGHTS_HISTORY               |                   
+APP              |MAPS                          |                   
+
+7 rows selected</pre>
+ 
+		</li>
+ 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_C91712AA7C194521A2CBD422D3C4D69C">Verify whether individual tables are replicated or
+					partitioned:
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select tablename, datapolicy from sys.systables where tableschemaname='APP';</strong>
+TABLENAME                                                     |DATAPOLICY     
+------------------------------------------------------------------------------
+AIRLINES                                                      |REPLICATE      
+COUNTRIES                                                     |REPLICATE      
+CITIES                                                        |REPLICATE      
+FLIGHTS_HISTORY                                               |PARTITION      
+FLIGHTAVAILABILITY                                            |PARTITION      
+FLIGHTS                                                       |PARTITION      
+MAPS                                                          |REPLICATE      
+
+7 rows selected</pre>
+
+				</li>
+ 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_00B8F2052889497C9535EC2B53F916A9"> 
+		  <p class="p">The FLIGHTS table and others are now partitioned across the GemFire XD cluster. Use the
+							<samp class="ph codeph">dsid()</samp> function again to display the member IDs that
+						host the table: </p>
+ 
+		  <pre class="pre codeblock">gfxd&gt; <strong class="ph b">select distinct dsid() as id from flights;</strong>
+ID                                                                             
+-------------------------------------------------------------------------------
+192.168.125.147(39486)&lt;v1&gt;:40258                                               
+192.168.125.147(39598)&lt;v2&gt;:23162                                               
+
+2 rows selected</pre>
+ 
+		</li>
+ 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_7DB81683C79C42FA97E9525ED4AC98E7"> 
+		  <p class="p">Now use the 
+			 <a class="xref noPageCitation" href="../../reference/language_ref/functions/ref-dsid.html#reference_9EF71F03B1804899BDC76279457B49CA" title="Return the string form of the unique distributed member process identity in the GemFire XD cluster.">DSID</a>
+			 to see how many rows of the partitioned FLIGHT table are stored on that GemFire XD
+			 server. For example: 
+		  </p>
+ 
+		  <pre class="pre codeblock">gfxd&gt; <strong class="ph b">select count(*) memberRowCount, dsid() from flights group by dsid();</strong>
+MEMBERROWCOUNT|2                                                               
+-------------------------------------------------------------------------------
+282           |192.168.125.147(39486)&lt;v1&gt;:40258                                
+260           |192.168.125.147(39598)&lt;v2&gt;:23162                                
+
+2 rows selected</pre>
+
+					<div class="note note"><span class="notetitle">Note:</span> The exact row count may be different for your GemFire XD distributed
+						system. </div>
+ 
+		</li>
+ 
+		<li class="li" id="concept_821456C46ABC4710961E8040DF47A354__li_A90D336F0BB644D89206B27D7108652E"> 
+		  <p class="p" id="concept_821456C46ABC4710961E8040DF47A354__p_9C53A8FC25A64D4DAC403AF38906FFAC">Execute a join on both
+			 partition members in parallel. 
+		  </p>
+ 
+		  <pre class="pre codeblock">gfxd&gt; <strong class="ph b">select flight_date, economy_seats_taken, firstclass_seats_taken from flights f, flightavailability fa 
+      where f.flight_id = fa.flight_id and f.flight_id = 'AA1116';</strong>
+FLIGHT_DATE|ECONOMY_SEATS_TAKEN|FIRSTCLASS_SEATS_TAKEN
+------------------------------------------------------
+2004-03-31 |2                  |2                     
+2004-04-11 |1                  |1                     
+2004-04-12 |2                  |2                     
+2004-04-15 |5                  |0                     
+2004-04-20 |10                 |0                     
+2004-04-23 |1                  |1                     
+2004-04-24 |2                  |2                     
+2004-05-03 |11                 |0                     
+2004-05-05 |1                  |1                     
+2004-05-06 |2                  |2                     
+2004-05-17 |1                  |1                     
+2004-05-18 |2                  |2                     
+2004-05-29 |1                  |1                     
+2004-05-30 |2                  |2                     
+
+14 rows selected</pre>
+ 
+		  <div class="p" id="concept_821456C46ABC4710961E8040DF47A354__p_780FFD600582448BA2830C28362448B6">The combined results are returned. Because the table
+						is partitioned by FLIGHT_ID, the execution of the join is pruned to the
+						partition that stores the value 'AA1116.' You can verify that flight_id
+						'AA1116' is located on only one data store using the query:
+						<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select count(*), dsid() from flights where flight_id = 'AA1116';</strong>
+1          |2                                                                  
+-------------------------------------------------------------------------------
+1          |192.168.125.147(39598)&lt;v2&gt;:23162                                   
+
+1 row selected</pre>
+
+					</div>
+ 
+		</li>
+ 
+	 </ol>
+ 
+	 </div>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

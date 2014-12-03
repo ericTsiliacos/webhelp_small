@@ -1,0 +1,136 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="GemFire XD is commonly used as a distributed SQL cache in an embedded (peer client) or client-server configuration. It provides a plug-in framework to connect the cache to external data sources such ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Cache Plug-ins for External Data Connections"/><meta name="abstract" content="GemFire XD is commonly used as a distributed SQL cache in an embedded (peer client) or client-server configuration. It provides a plug-in framework to connect the cache to external data sources such as another relational database."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="GemFire XD is commonly used as a distributed SQL cache in an embedded (peer client) or client-server configuration. It provides a plug-in framework to connect the cache to external data sources such as another relational database."/><meta name="DC.subject" content="GemFire XD cache caching write through write behind read through"/><meta name="keywords" content="GemFire XD cache caching write through write behind read through"/><meta name="DC.Relation" scheme="URI" content="../topics/systemoverview.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="overviewofgemfirexd"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Cache Plug-ins for External Data Connections</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="overviewofgemfirexd"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster.">Understanding the GemFire XD Distributed System</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Cache Plug-ins for External Data Connections</h1>
+ 
+   
+  
+  <div class="body conbody"><p class="shortdesc">GemFire XD is commonly used as a distributed SQL cache in an embedded
+	 (peer client) or client-server configuration. It provides a plug-in framework
+	 to connect the cache to external data sources such as another relational
+	 database. 
+  </p>
+ 
+	 <div class="section" id="overviewofgemfirexd__Cachingplugins"> 
+		<div class="p" id="overviewofgemfirexd__p_F1EE17A538F741CBAF56D1E1FAE09594">Several cache plug-ins are
+		  supported: 
+		<ul class="ul" id="overviewofgemfirexd__ul_B451554F32BC48C2B9CF2F4ABC7D6A1E"> 
+		  <li class="li" id="overviewofgemfirexd__li_1CEFB7B6D4E644799EB15BD0FC96208D"> 
+			 <p class="p"><strong class="ph b">Reading from Backend on a Miss ("read through") 
+				</strong> 
+			 </p>
+ 
+			 <p class="p" id="overviewofgemfirexd__p_0F61F1E5C8BF42828CFD398070C934F4">When GemFire XD is used as a
+				cache, applications can configure a SQL RowLoader that is triggered to load the
+				data from a backend repository on a miss in GemFire XD. When an incoming query
+				request for a uniquely identified row cannot be satisfied by the distributed
+				cache, the loader is invoked to retrieve the data from an external source.
+				GemFire XD locks the associated row and prevents concurrent readers trying to
+				fetch the same row from bombarding the backend database. 
+			 </p>
+ 
+			 <div class="note note"><span class="notetitle">Note:</span>  When GemFire XD is used as a "pure" cache (that is,
+				some or all tables are configured with LRU eviction, and only the actively used
+				subset of data is cached in GemFire XD), queries on these tables can be based only
+				on the primary key. Only primary key-based queries invoke a configured loader.
+				Any other query potentially could produce inconsistent results from the cache. 
+			 </div>
+ 
+			 <p class="p">See 
+				<a class="xref" href="../../developers_guide/topics/cache/rowloader.html#rowloader" title="When you use GemFire XD as a cache, you can configure a SQL data loader that is triggered to load data from a backend repository on a miss in GemFire XD.">Using a RowLoader to Load Existing Data</a>.
+				
+			 </p>
+ 
+		  </li>
+ 
+		  <li class="li" id="overviewofgemfirexd__li_AD3487158BA343F59DD710197CD7C894"> 
+			 <p class="p"><strong class="ph b">Synchronous Write Back to Backend ("write through") 
+				</strong> 
+			 </p>
+ 
+			 <p class="p" id="overviewofgemfirexd__p_41436EF8116B44118F9143F6A930DD9A">When data is strictly
+				managed in memory, even with replication, a failure of the entire cluster means
+				loss of data. With synchronous write-through, all changes can be synchronously
+				written to the backend repository before the cache is changed. If and only if
+				the write-through succeeds, the data becomes visible in the cache. You
+				configure synchronous write-through with a GemFire XD "cache writer". See 
+				<a class="xref" href="../../caching_database/cache-plug-ins.html#concept_47962BA2817A45F18EB10275D4A5E8AD" title="GemFire XD provides synchronous cache plug-in mechanisms to handle cache events.">Handling DML Events Synchronously</a>.
+				
+			 </p>
+ 
+		  </li>
+ 
+		  <li class="li" id="overviewofgemfirexd__li_369A0533CC0745D1A29D597A4DE328F4"> 
+			 <p class="p"><strong class="ph b">Asynchronous Write Back to Backend ("write behind")</strong> 
+			 </p>
+ 
+			 <p class="p" id="overviewofgemfirexd__p_43AD21E2EF134FC68812DE6E5E8863FB">If synchronous writes to
+				the backend are too costly, the application can configure the use of a "write
+				behind cache listener". GemFire XD supports several options for how the events are
+				queued, batched, and written to the database of record. It is designed for very
+				high reliability and handles many failure conditions. Persistent queues ensure
+				writes even when the backend database is temporarily unavailable. You can order
+				event delivery or batch it based on a time interval. You can also conflate a
+				certain number of rows and continuous updates to a single update, to reduce the
+				load on the backend database of an 'update heavy' system. See 
+				<a class="xref" href="../../caching_database/asyncevent-chapter.html#concept_48F6F756D07241988C4CE724675427AE" title="An AsyncEventListener receives callbacks on the execution of data manipulation language (DML) statements (create, update, and delete operations) in GemFire XD. In a caching deployment, you can use an AsyncEventListener to analyze data in DML statements and take desired actions such as persisting the data in a specific format.">Handling DML Events Asynchronously</a>.
+				
+			 </p>
+ 
+		  </li>
+ 
+		</ul>
+ 
+		</div>
+ 
+	 </div>
+ 
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Need a quick introduction to GemFire XD? Take this 15-minute tour to try out the basic features and functionality. The GemFire XD tutorials expand on these concepts, and demonstrate additional product ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="GemFire XD in 15 Minutes"/><meta name="abstract" content="Need a quick introduction to GemFire XD? Take this 15-minute tour to try out the basic features and functionality."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Need a quick introduction to GemFire XD? Take this 15-minute tour to try out the basic features and functionality."/><meta name="DC.Relation" scheme="URI" content="book_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="task_obv_nsp_3j"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>GemFire XD in 15 Minutes</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="task_obv_nsp_3j"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started with GemFire XD</span></a></span>  </div></td></tr></tbody></table>
+
+	<h1 class="title topictitle1">GemFire XD in 15 Minutes</h1>
+
+	
+	<div class="body taskbody"><p class="shortdesc">Need a quick introduction to GemFire XD? Take this 15-minute tour to try out the
+		basic features and functionality. </p>
+
+		<div class="section context" id="task_obv_nsp_3j__context_05CE70DA341B43278D405408FE8203B7">
+			<p class="p">The GemFire XD tutorials expand on these concepts, and demonstrate additional product
+				features. See <a class="xref" href="tutorial_chapter_intro.html#concept_A14BF60B65314B97BA19EE6C81620CB3" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a>. </p>
+
+		</div>
+
+		<ol class="ol steps" id="task_obv_nsp_3j__steps_FBCB6560DE1340F9A2F3D49A0A2804DF"><li class="li step stepexpand">
+				<span class="ph cmd">If you are using the Pivotal HD Single Node VM distribution, or you have
+					already installed GemFire XD, skip to Step 6.</span>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_674E9B438C8C429597AA7329706704A3">
+				<span class="ph cmd">Download the latest GemFire XD <span class="ph filepath">.zip</span> file distribution from the product
+					download page: <a class="xref" href="https://network.pivotal.io/products/gemfirexd" target="_blank">https://network.pivotal.io/products/gemfirexd</a>. Save the
+					downloaded file in your home directory. </span>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_E1638142467D4745A2F96A00EF44A3FA">
+				<span class="ph cmd">Install GemFire XD by uncompressing the downloaded file. For example: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">cd ~</strong>
+$ <strong class="ph b">unzip Pivotal_GemFireXD_130_b48613_Linux.zip</strong></pre>
+
+					<p class="p">Substitute the exact filename that you downloaded. </p>
+
+				</div>
+				<div class="itemgroup stepresult">This installs GemFire XD in a new
+						<span class="ph filepath">Pivotal_GemFireXD_<var class="keyword varname">XXX</var>_</span>b<em class="ph i">NNNNN</em>_Linux
+					subdirectory in your home directory, where <em class="ph i">XXX</em> is the version of GemFire
+					XD and <em class="ph i">NNNNN</em> is the specific GemFire XD build number that you downloaded. </div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_F9B9189C2E40410B9D90584E756B3B08">
+				<span class="ph cmd">If you have not already done so, download and install Java. </span>
+				<div class="itemgroup stepresult">For a list of Java versions supported with this release of GemFire XD,
+					see <a class="xref" href="topics/system_requirements.html#concept_system-requirements" title="This topic describes the supported configurations and system requirements for GemFire XD.">Supported Configurations and System Requirements</a>.
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_A5880F4CD5DC48CE899E796C3668A4C5">
+				<span class="ph cmd">Set your PATH environment variable to include the <span class="ph filepath">bin</span>
+					subdirectory of the GemFire XD directory. For example: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">export PATH=$PATH:$HOME/Pivotal_GemFireXD_<em class="ph i">XXX</em>_b<em class="ph i">NNNNN</em>_Linux/bin</strong></pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_30ABEB82673A49C0AD36C441D60689B0">
+				<span class="ph cmd">Create three new directories in your home directory for the locator and two servers that
+					will make up the GemFire XD distributed system: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">mkdir locator1 server1 server2</strong></pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_D481137D01F34853B5C955B15F19DE1C">
+				<span class="ph cmd">Start the locator: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">gfxd locator start -peer-discovery-address=localhost -dir=locator1 -jmx-manager-start=true -jmx-manager-http-port=7075</strong>
+Starting GemFireXD Locator using peer discovery on: localhost[10334]
+Starting network server for GemFireXD Locator at address localhost/127.0.0.1[1527]
+GemFireXD Locator pid: 8787 status: running
+Logs generated in /home/yozie/Pivotal_GemFireXD_<em class="ph i">XXX</em>_b<em class="ph i">NNNNN</em>_Linux/quickstart/locator1/gfxdlocator.log</pre>
+
+					<p class="p">This command starts a default locator that accepts connections on the
+						localhost address. The default port of 10334 is used for communication with
+						other members of the distributed system. (You can double-check that this
+						port is used by examining the <span class="ph filepath">locator1/gfxdlocator.log</span>
+						file.) All new members of the distributed system must specify this locator's
+						address and peer discovery port, localhost[10334], in order to join the
+						system. </p>
+
+					<p class="p">The default port of 1527 is used for client connections to the distributed
+						system. </p>
+
+					<p class="p">Specifying <samp class="ph codeph">-jmx-manager-start=true</samp> starts an embedded JMX
+						Manager within the locator. By starting a JMX Manager, you can monitor and
+						browse the GemFire XD distributed system through the Pulse graphical
+						interface.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand">
+				<span class="ph cmd">Start the Pulse monitoring tool by opening a <a class="xref" href="topics/pulse-requirements.html#system_requirements__section_CBD5B04ACC554029B5C710CE8E244FEA">browser</a>
+					and entering the following URL: </span>
+				<div class="itemgroup info"><pre class="pre codeblock">http://localhost:7075/pulse</pre>
+At the Pulse login screen, type in the
+					default username <samp class="ph codeph">admin</samp> and password <samp class="ph codeph">admin</samp>.
+					Keep on checking the Pulse tool for corresponding changes as you perform the
+					activities in this quickstart.</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_682059E158F14A1F9366FBCD54F719E6">
+				<span class="ph cmd">Start both servers: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">gfxd server start -locators=localhost[10334] -bind-address=localhost -client-port=1528 -dir=server1</strong>
+$ <strong class="ph b">gfxd server start -locators=localhost[10334] -bind-address=localhost -client-port=1529 -dir=server2</strong>
+Starting GemFireXD Server using locators for peer discovery: localhost[10334]
+Starting network server for GemFireXD Server at address localhost/127.0.0.1[1528]
+GemFireXD Server pid: 8897 status: running
+Logs generated in /home/yozie/Pivotal_GemFireXD_<em class="ph i">XXX</em>_b<em class="ph i">NNNNN</em>_Linux/quickstart/server1/gfxdserver.log
+Starting GemFireXD Server using locators for peer discovery: localhost[10334]
+Starting network server for GemFireXD Server at address localhost/127.0.0.1[1529]
+GemFireXD Server pid: 9003 status: running
+Logs generated in /home/yozie/Pivotal_GemFireXD_<em class="ph i">XXX</em>_b<em class="ph i">NNNNN</em>_Linux/quickstart/server2/gfxdserver.log</pre>
+
+					<p class="p">Both servers also bind to the localhost address. They must specify unique
+						client ports in order to avoid conflicts with the locator's default client
+						port. As an alternative, they could disable the network server entirely by
+						specifying <samp class="ph codeph">-run-netserver=false</samp>, and all clients would need
+						to connect through the locator. </p>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_DD8A0F410A5D41639B8AF87E34F2369F">
+				<span class="ph cmd">Before going any further, check to make sure that you're in the GemFire XD
+						<span class="ph filepath">quickstart</span> subdirectory. You'll need to run the script
+					files in this directory later in the tutorial, and you must execute those
+					scripts from within the <span class="ph filepath">quickstart</span> directory. If you
+					installed GemFire XD from the TAR file: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">cd ~/Pivotal_GemFireXD_<em class="ph i">XXX</em>_b<em class="ph i">NNNNN</em>_Linux/quickstart</strong></pre>
+
+					<div class="p">If you are using the Pivotal HD Single Node
+						VM:<pre class="pre codeblock">$ <strong class="ph b">cd /usr/lib/gphd/gfxd/quickstart</strong></pre>
+</div>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_CA186AA412554086840935FFB57D61E1">
+				<span class="ph cmd">Connect to the distributed system as a thin client, and display information
+					about the system members: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">$ <strong class="ph b">gfxd</strong>
+gfxd&gt; <strong class="ph b">connect client 'localhost:1527';</strong></pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_663BC8AFD70C4E66A4A1212A89FA6592">
+				<span class="ph cmd">Now that you're connected to the system, run a simple query to display
+					information about the GemFire XD system members: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select id, kind, netservers from sys.members;</strong>
+ID                            |KIND             |NETSERVERS                   
+------------------------------------------------------------------------------
+localhost(17355):1374         |locator(normal)  |localhost/127.0.0.1[1527]    
+localhost(17535)&lt;v2&gt;:52946    |datastore(normal)|localhost/127.0.0.1[1529]    
+localhost(17438)&lt;v1&gt;:1230     |datastore(normal)|localhost/127.0.0.1[1528]    
+
+3 rows selected</pre>
+
+				</div>
+				<div class="itemgroup stepresult">By default, GemFire XD servers are started as data stores, so that they
+					can host database schemas. In this cluster, you can connect as a client to any
+					member by specifying localhost with the unique port number of the member (the
+					one specified in the NETSERVERS column). However, connecting to the locator
+					provides basic load balancing by routing the connection request to an available
+					server member. </div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_DFD54C40415E4E0D9C7E3F2A51047463">
+				<span class="ph cmd">Create a simple table and insert a few rows: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">create table quicktable (id int generated always as identity, item char(25));</strong>
+0 rows inserted/updated/deleted
+gfxd&gt; <strong class="ph b">insert into quicktable values (default, 'widget');</strong>
+1 row inserted/updated/deleted
+gfxd&gt; <strong class="ph b">insert into quicktable values (default, 'gadget');</strong>
+1 row inserted/updated/deleted
+gfxd&gt; <strong class="ph b">select * from quicktable;</strong>
+ID         |ITEM                     
+-------------------------------------
+2          |gadget                
+1          |widget                   
+
+2 rows selected</pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_C334AE9EB2814233AFA168CEA45B83A6">
+				<span class="ph cmd">By default, GemFire XD replicates new tables that you create onto data store
+					members. You can validate this using the query: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select tablename, datapolicy from sys.systables where tablename='QUICKTABLE';</strong>
+TABLENAME                                                    |DATAPOLICY     
+-----------------------------------------------------------------------------
+QUICKTABLE                                                   |REPLICATE      
+
+1 row selected</pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_012E7364A35B4BD18CE67D9F10964469">
+				<span class="ph cmd">Execute two SQL scripts to generate a schema that has both replicated and
+					partitioned tables, and then load the schema with data: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">run 'create_colocated_schema.sql';</strong>
+gfxd&gt; <strong class="ph b">run 'loadTables.sql';</strong></pre>
+
+					<p class="p">You see numerous messages as various SQL commands are executed. The first
+						script creates both replicated and partitioned tables, as you can see using
+						the query: </p>
+
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select tablename, datapolicy from sys.systables where tableschemaname='APP';</strong>
+TABLENAME                                                     |DATAPOLICY     
+------------------------------------------------------------------------------
+FLIGHTS_HISTORY                                               |PARTITION      
+FLIGHTAVAILABILITY                                            |PARTITION      
+FLIGHTS                                                       |PARTITION      
+MAPS                                                          |REPLICATE      
+CITIES                                                        |REPLICATE      
+COUNTRIES                                                     |REPLICATE      
+AIRLINES                                                      |REPLICATE      
+QUICKTABLE                                                    |REPLICATE      
+
+8 rows selected</pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_45680C37A77F4B2FB5DCC9EF99833EF3">
+				<span class="ph cmd">To observe a benefit of table partitioning, look at a query plan that involves
+					one of the partitioned tables. Use the EXPLAIN command with a query to generate
+					a query execution plan: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; explain select * from flights;</pre>
+
+				</div>
+				<div class="itemgroup stepresult">The <samp class="ph codeph">EXPLAIN</samp> command stores the query execution plan for
+					the statement in STATEMENTPLANS system table. </div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_31EC0FB1221D4E95B44164778BC06844">
+				<span class="ph cmd">To view the details of the query plan, disconnect as a thin client from the
+					distributed system, and then reconnect as a peer client. A peer client
+					participates as a member of the GemFire XD distributed system and can coordinate
+					queries, but it does not host any actual data. Execute these commands: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">disconnect;
+</strong>gfxd&gt; <strong class="ph b">connect peer 'host-data=false;locators=localhost[10334]';</strong></pre>
+
+					<p class="p">You can see that your peer client connection introduces a new member to the
+						distributed system: </p>
+
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select id, kind, netservers from sys.members;</strong>
+ID                            |KIND             |NETSERVERS                   
+------------------------------------------------------------------------------
+localhost(17355):1374         |locator(normal)  |localhost/127.0.0.1[1527]    
+localhost(17438)&lt;v1&gt;:1230     |datastore(normal)|localhost/127.0.0.1[1528]    
+localhost(17535)&lt;v2&gt;:52946    |datastore(normal)|localhost/127.0.0.1[1529]    
+10.0.1.18(17894)&lt;v3&gt;:22695    |accessor(normal) |                             
+
+4 rows selected</pre>
+
+					<p class="p">The term accessor indicates that the member only accesses data, but does not
+						store data for the distributed system. </p>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_FA910A55A7404A1A9A2E516BE410B09D">
+				<span class="ph cmd">To view the query execution plan that you generated earlier, query the
+					SYS.STATEMENTPLANS table to view the statement ID (STMT_ID), then use EXPLAIN
+					again with the ID to view the plan: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">select stmt_id, stmt_text from sys.statementplans;</strong>
+STMT_ID                             |STMT_TEXT                              
+-------------------------------------------------------------------------------
+00000001-ffff-ffff-ffff-00020000004c| select * from flights                   
+
+1 row selected
+gfxd&gt; <strong class="ph b">explain '00000001-ffff-ffff-ffff-00020000004c';</strong>
+member   localhost(17438)&lt;v1&gt;:1230 begin_execution  2013-02-27 15:33:30.759 end_execution  2013-02-27 15:33:30.779
+QUERY-RECEIVE  execute_time 19.440818 ms member_node localhost(17535)&lt;v2&gt;:52946
+  RESULT-SEND  execute_time 0.130708 ms member_node localhost(17535)&lt;v2&gt;:52946
+    RESULT-HOLDER  execute_time 10.600616 ms returned_rows 275 no_opens 1
+      TABLESCAN (100.00%) execute_time 3.250588 ms returned_rows 275 no_opens 1 scan_qualifiers None scanned_object APP.FLIGHTS scan_type HEAP
+member   localhost(17535)&lt;v2&gt;:52946 begin_execution  2013-02-27 15:33:30.758 end_execution  2013-02-27 15:33:30.89
+QUERY-SCATTER  execute_time 13.358717 ms member_node localhost(17438)&lt;v1&gt;:1230,localhost(17535)&lt;v2&gt;:52946
+  QUERY-SEND  execute_time 3.345079 ms member_node localhost(17438)&lt;v1&gt;:1230
+    QUERY-SEND  execute_time 1.140207 ms member_node localhost(17535)&lt;v2&gt;:52946
+      RESULT-RECEIVE  execute_time 0.008155 ms member_node localhost(17535)&lt;v2&gt;:52946
+        RESULT-RECEIVE  execute_time 1.4887 ms member_node localhost(17438)&lt;v1&gt;:1230
+          SEQUENTIAL-ITERATION (35.23%) execute_time 10.463731 ms returned_rows 542 no_opens 1
+            RESULT-HOLDER  execute_time 0.490328 ms returned_rows 267 no_opens 1 member_node localhost(17535)&lt;v2&gt;:52946
+              RESULT-HOLDER  execute_time 1.65846 ms returned_rows 275 no_opens 1 member_node localhost(17438)&lt;v1&gt;:1230
+                DISTRIBUTION-END (64.76%) execute_time 19.233818 ms returned_rows 542
+Local plan:
+member   localhost(17535)&lt;v2&gt;:52946 begin_execution  2013-02-27 15:33:30.762 end_execution  2013-02-27 15:33:30.842
+TABLESCAN (100.00%) execute_time 3.297607 ms returned_rows 267 no_opens 1 scan_qualifiers None scanned_object APP.FLIGHTS scan_type HEAP</pre>
+
+					<div class="note note"><span class="notetitle">Note:</span> The generated statement ID may be different on your system. Copy the exact
+						ID from the output of the SELECT statement and paste it into the second
+						EXPLAIN statement. </div>
+
+					<p class="p">The plan describes exactly how GemFire XD performed the query. Note the two
+						QUERY-SEND entries. These entries indicate that the results for the query
+						were obtained from each of the two data store members in the distributed
+						system. Because the FLIGHTS table was created as a partitioned table, new
+						rows that are added to the table are uniquely assigned to partitions based
+						on the partitioning key (in this case, the key is the FLIGHT_ID column).
+						Partitions are then placed on data stores, which can process their portion
+						of the data independently when queries are performed against the table.
+						Results from multiple data stores are then merged on a single query
+						coordinator member to provide the final result set. </p>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_C3AF7B8707E040C7A3E795BB13C33789">
+				<span class="ph cmd">Either continue executing queries against the sample database, or shut down the
+					GemFire XD distributed system. To shut down all members of the system, first use
+					the <samp class="ph codeph">shut-down-all</samp> command to stop data stores and accessors.
+					Then shut down any remaining locators: </span>
+				<div class="itemgroup info">
+					<pre class="pre codeblock">gfxd&gt; <strong class="ph b">quit;</strong>
+$ <strong class="ph b">gfxd shut-down-all -locators=localhost[10334]</strong>
+Connecting to distributed system: locators=localhost[10334]
+Successfully shut down 2 members
+$ <strong class="ph b">gfxd locator stop -dir=locator1</strong>
+The GemFireXD Locator has stopped.</pre>
+
+				</div>
+			</li>
+<li class="li step stepexpand" id="task_obv_nsp_3j__step_417B4BFF7EDF4489AAF599F45896D924">
+				<span class="ph cmd">To continue learning about GemFire XD, read or work through the remaining <a class="xref" href="tutorial_chapter_intro.html#concept_A14BF60B65314B97BA19EE6C81620CB3" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a>. </span>
+			</li>
+</ol>
+
+	</div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started with GemFire XD</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

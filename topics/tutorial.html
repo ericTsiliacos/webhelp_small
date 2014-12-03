@@ -1,0 +1,167 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The tutorial is divided into the following steps, which explain how to set up a cluster of GemFire XD servers on multiple Java VMs and then distribute data across the cluster. Perform the steps in the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Main Steps"/><meta name="abstract" content="The tutorial is divided into the following steps, which explain how to set up a cluster of GemFire XD servers on multiple Java VMs and then distribute data across the cluster. Perform the steps in the sequence shown."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The tutorial is divided into the following steps, which explain how to set up a cluster of GemFire XD servers on multiple Java VMs and then distribute data across the cluster. Perform the steps in the sequence shown."/><meta name="DC.subject" content="Tutorial"/><meta name="keywords" content="Tutorial"/><meta name="DC.Relation" scheme="URI" content="../tutorial_chapter_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_93C1E79CD3E24CB5BC3CD7159DDD6596"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Main Steps</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_93C1E79CD3E24CB5BC3CD7159DDD6596"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Main Steps</h1>
+ 
+   
+   
+  <div class="body conbody"><p class="shortdesc"> The tutorial is
+	 divided into the following steps, which explain how to set up a cluster of
+	 GemFire XD servers on multiple Java VMs and then distribute data across the
+	 cluster. Perform the steps in the sequence shown. 
+  </p>
+ 
+	 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_93C1E79CD3E24CB5BC3CD7159DDD6596__table_1C8275F817FF4B6BAEECF6C8B3016BEB" class="table" frame="border" border="1" rules="all"><thead class="thead" align="left"> 
+			 <tr class="row"> 
+				<th class="entry" valign="top" width="16.286644951140065%" id="d7322e35"> Step 
+				</th>
+ 
+				<th class="entry" valign="top" width="83.71335504885994%" id="d7322e38"> Description 
+				</th>
+ 
+			 </tr>
+</thead>
+ 
+		  <tbody class="tbody"> 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 "> Step 1 
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial_create_cluster.html#concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76" title="In this tutorial you set up and start a cluster of two GemFire XD servers.">Create a GemFire XD Cluster</a>
+				  
+				</td>
+ 
+			 </tr>
+ 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 "> Step 2 
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial_connect_thin_client.html#concept_738B44DA98B34B13B2B78361B78EC315" title="gfxd implements a command-line tool that is based on the Apache Derby ij tool. You can use gfxd to connect to a GemFire XD cluster and run scripts or interactive queries. You execute gfxd using the gfxd or gfxd.bat script.">Connect to the Cluster Using GFXD and Pulse</a>
+				  
+				</td>
+ 
+			 </tr>
+ 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 "> Step 3 
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial_create_replicated_tables.html#concept_1E625755F74F493BBCEBCF44F6347A15" title="By default GemFire XD replicates tables to members of the cluster. In this tutorial you create new tables that are replicated the GemFire XD cluster.">Create Replicated Tables and Execute Queries</a>
+				  
+				</td>
+ 
+			 </tr>
+ 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 "> Step 4 
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial_partitioning_strategy.html#concept_821456C46ABC4710961E8040DF47A354" title="In this tutorial you drop all tables in the ToursDB schema and then recreate them using a new partitioning and replication strategy.">Implement a Partitioning Strategy</a>
+				  
+				</td>
+ 
+			 </tr>
+ 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 "> Step 5 
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial_persist.html#concept_55B8FBB016E54149B1BC06B857194235" title="By default, a GemFire XD distributed system persists only the data dictionary for the tables and indexes you create. These persistence files are stored in the datadictionary subdirectory of each locator and data store that joins the distributed system. Table data, however, is not persisted by default; if you shut down all GemFire XD members, the tables are empty on the next startup. In this tutorial you will persist table data to GemFire XD disk store files.">Persist Tables to Disk</a> 
+				</td>
+ 
+			 </tr>
+ 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 ">Step 6
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial_rebalance.html#concept_6A252EAA3FCB4E9D8BD687B40247AE8F" title="GemFire XD manages data in a flexible way that enables you to expand or contract your cluster at runtime to support different loads. To dynamically add more capacity to a cluster, you add new server members and specify the -rebalance option.">Add Servers to the Cluster and Stop Servers</a>
+				  
+				</td>
+ 
+			 </tr>
+ 
+			 <tr class="row"> 
+				<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 ">Step 7 
+				</td>
+ 
+				<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial-persist-hadoop.html#concept_55B8FBB016E54149B1BC06B857194235" title="Up to this point, the tutorial clusters have managed all table primary keys and indexes in memory, while persisting table data to local GemFire XD disk store files. In this tutorial, you will create a table that persists data to HDFS log files.">Persist Tables to Hadoop</a>
+				</td>
+ 
+			 </tr>
+
+					<tr class="row">
+						<td class="entry" valign="top" width="16.286644951140065%" headers="d7322e35 ">Step 8 </td>
+
+						<td class="entry" valign="top" width="83.71335504885994%" headers="d7322e38 "><a class="xref" href="tutorial-pxf-hawq.html#concept_55B8FBB016E54149B1BC06B857194235" title="GemFire XD supports a PXF driver to enable you to query HDFS table data using HAWQ. (The PXF driver is installed with HAWQ.) In this tutorial, you will map the GemFire XD table that you created in the previous tutorial as a HAWQ external table and use HAWQ to query the data persisted in Hadoop.">Query HDFS Tables with HAWQ</a>
+						</td>
+
+					</tr>
+ 
+		  </tbody>
+ 
+		</table>
+</div>
+ 
+	 <div class="note note"><span class="notetitle">Note:</span> In addition to the tutorials, GemFire XD includes a standalone
+		MapReduce example that you can run to process HDFS data in a MapReduce job. The
+		MapReduce example does not use or build upon the above tutorial steps. See 
+		<a class="xref" href="tutorial_mapred.html#concept_a44_y2f_4l" title="When you persist the data for a GemFire XD table to HDFS, the HDFS log files enable you to analyze the table data outside of the GemFire XD distributed system, using Hadoop tools such as MapReduce or Pivotal HAWQ. GemFire XD includes a MapReduce example that helps you generate HDFS table data and then access the data using a Hadoop MapReduce job.">MapReduce Example</a>.
+	 </div>
+ 
+	 <p class="p"><strong class="ph b">Prerequisites</strong> 
+	 </p>
+ 
+	 <p class="p">Install GemFire XD on your local computer as described in <a class="xref" href="install_intro.html#install-setup" title="You can install GemFire for production use from a downloaded RPM file (RHEL only) or from a downloaded ZIP file (Windows or RHEL). Pivotal also provides a Debian package and Homebrew packages for development with Ubuntu and Mac OSX. The following sections describe how to install the standalone GemFire XD product using a downloaded RPM file, ZIP file, Debian package, or Homebrew package.">Installing GemFire XD</a>. </p>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

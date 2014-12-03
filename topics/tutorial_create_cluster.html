@@ -1,0 +1,238 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In this tutorial you set up and start a cluster of two GemFire XD servers. Procedure Begin by opening a command prompt or terminal window on the computer or VM where you installed GemFire XD. The ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Create a GemFire XD Cluster"/><meta name="abstract" content="In this tutorial you set up and start a cluster of two GemFire XD servers."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In this tutorial you set up and start a cluster of two GemFire XD servers."/><meta name="DC.Relation" scheme="URI" content="../tutorial_chapter_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Create a GemFire XD Cluster</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster.">QuickStart Tutorials</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Create a GemFire XD Cluster</h1>
+ 
+   
+  <div class="body conbody"><p class="shortdesc">In this tutorial you set up and start a cluster of two GemFire XD servers. </p>
+ 
+	 <div class="p"> 
+		<strong class="ph b">Procedure</strong> 
+	 <ol class="ol" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__ol_9590E11502B54033A677B3A28DD175F7"> 
+		<li class="li" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__li_45C355EA23F241DA809D8FA59087688C">Begin by opening a command
+		  prompt or terminal window on the computer or VM where you installed GemFire XD. 
+		</li>
+ 
+		<li class="li" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__li_BB83F588FF0F4BE7AD8ECF1E05F12F0B">The initial GemFire XD cluster in this tutorial
+					contains two standalone GemFire XD server members. Move to your home directory
+					and create a new directory for each server:
+					<pre class="pre codeblock">$ <strong class="ph b">cd ~</strong>
+$ <strong class="ph b">mkdir server1 server2</strong></pre>
+Each server
+					will use its local directory to write log files, backup disk store files, a
+						<span class="ph filepath">datadictionary</span> directory for persisting data, and a
+					single status file, <span class="ph filepath">.gfxdserver.ser</span>. </li>
+ 
+		<li class="li" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__li_B170BFCA078E4499BFDAA89286279B00">To manage client connections to the available GemFire XD
+					server members, the cluster in this tutorial uses a GemFire XD locator member.
+					Create a new directory for the locator member:
+					<pre class="pre codeblock">$ <strong class="ph b">mkdir locator</strong></pre>
+A locator maintains a list of
+					available servers in the cluster, and updates that list as servers join and
+					leave the cluster. Locators also load balance client connections across all
+					available servers. </li>
+ 
+		<li class="li" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__li_0BE291E58B224F048CA977E048F0F67C">To start or stop a GemFire XD locator or a GemFire XD
+					server, you use the <samp class="ph codeph">gfxd</samp> script (for Linux platforms) or
+						<samp class="ph codeph">gfxd.bat</samp> script (for Windows platforms). If you installed
+					GemFire XD using the RPM or your are using the Pivotal HD Single Node VM, the
+					installation process automaticallly sets your path to include the
+						<span class="ph filepath">gfxd</span> script, and you can skip this step.<p class="p">If you
+						installed using the ZIP file distribution, you must first ensure that the
+						path to the GemFire XD <span class="ph filepath">bin</span> directory is part of your
+						PATH environment variable. For example, on a Linux platform enter:
+					</p>
+<pre class="pre codeblock">$ <strong class="ph b">export PATH=$PATH:<var class="keyword varname">path-to-gemfirexd-installation</var>/bin</strong></pre>
+On
+					a Windows platform enter:
+					<pre class="pre codeblock">c:\&gt; <strong class="ph b">set Path=%Path%;<var class="keyword varname">path-to-gemfirexd-installation</var>\bin</strong></pre>
+
+					Substitute <var class="keyword varname">path-to-gemfirexd-installation</var> with the actual
+					path to your GemFire XD installation.</li>
+ 
+		<li class="li" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__li_CD3E0C9DE2FE4C75B31B0274ED633243">When you start a GemFire XD distributed system,
+					always begin by starting the locator member. Use the <samp class="ph codeph">gfxd
+						locator</samp> command to start the locator in the specified directory: <pre class="pre codeblock">$ <strong class="ph b">gfxd locator start -dir=$HOME/locator -peer-discovery-port=10101 -client-port=1527 -jmx-manager-start=true -jmx-manager-http-port=7075</strong>
+Starting GemFire XD Locator using peer discovery on: 0.0.0.0[10101]
+Starting network server for GemFire XD Locator at address localhost/127.0.0.1[1527]
+Logs generated in /home/gpadmin/locator/gfxdlocator.log
+GemFire XD Locator pid: 41456 status: running</pre>
+
+					<p class="p">The <samp class="ph codeph">-peer-discovery-port</samp> defines a unique connection port
+						that all members of this GemFire XD distributed system use for communicating
+						with one another. Always use a unique <samp class="ph codeph">-peer-discovery-port</samp>
+						number to avoid joining a cluster that is already running on your network.
+						If other people might be evaluating GemFire XD on your network, choose a
+						port number other than 10101.</p>
+
+					<p class="p">The <samp class="ph codeph">-client-port</samp> defines the connection port that client
+						applications use to connect to this locator. In this tutorial, all GemFire
+						XD members run on the localhost address and use different port numbers to
+						define unique connections. In a production environment, you can specify
+						dedicated network interfaces for member discovery or client access by using
+						the <samp class="ph codeph">-peer-discovery-address</samp> and
+							<samp class="ph codeph">-client-bind-address</samp> options.</p>
+<p class="p">Specifying
+							<samp class="ph codeph">-jmx-manager-start=true</samp> starts an embedded JMX Manager
+						within the locator. By starting a JMX Manager, you can monitor and browse
+						the GemFire XD distributed system through the Pulse graphical
+						interface.</p>
+<p class="p">You can verify the peer and client connections in the
+						locator startup messages. </p>
+
+					<div class="note note"><span class="notetitle">Note:</span> By starting the locator member first, the locator can manage cluster
+						membership from the start as new servers join and leave the distributed
+						system. The locator member should also be the last process that you shut
+						down when you want to stop a GemFire XD distributed system. </div>
+
+					<div class="note note"><span class="notetitle">Note:</span> As an alternative, GemFire XD members can discover each other using
+						multicast messaging. However, important GemFire XD features such as WAN
+						replication and user authentication require that a GemFire XD system use
+						locators rather than multicast for discovery. See <a class="xref" href="../../deploy_guide/Topics/discovery_configuration.html#concept_7AC652BCF34146C580B221CF585C811B" title="Whether you deploy embedded GemFire XD peers or standalone GemFire XD servers, members of the same cluster must use a common discovery method to locate each other. UDP multicast and TCP locators are the two mechanisms supported for GemFire XD member discovery.">Configuring Discovery Mechanisms</a>. </div>
+
+				</li>
+ 
+		<li class="li" id="concept_73C6F4A5AAEA4CAE8A9A5E74C1CC7D76__li_0E31A8CEC2294456859D1BB3026C479D">Now use the <samp class="ph codeph">gfxd server</samp> command to
+					start both GemFire XD server members and join them to the distributed system: <pre class="pre codeblock">$ <strong class="ph b">gfxd server start -dir=$HOME/server1 -locators=localhost[10101] -client-port=1528</strong>
+Starting GemFire XD Server using locators for peer discovery: localhost[10101]
+Starting network server for GemFire XD Server at address localhost/127.0.0.1[1528]
+Logs generated in /home/gpadmin/server1/gfxdserver.log
+GemFire XD Server pid: 42051 status: running
+  Distributed system now has 2 members.
+  Other members: 192.168.125.140(41456:locator):20431
+$ <strong class="ph b">gfxd server start -dir=$HOME/server2 -locators=localhost[10101] -client-port=1529</strong>
+Starting GemFire XD Server using locators for peer discovery: localhost[10101]
+Starting network server for GemFire XD Server at address localhost/127.0.0.1[1529]
+Logs generated in /home/gpadmin/server2/gfxdserver.log
+GemFire XD Server pid: 42528 status: running
+  Distributed system now has 3 members.
+  Other members: 192.168.125.140(41456:locator):20431, 192.168.125.140(42051:datastore)&lt;v1&gt;:13160</pre>
+
+					<p class="p">In each command, the <samp class="ph codeph">-locators</samp> option defines the peer
+						discovery address to use for joining the GemFire XD distributed system.
+						Production deployments generally use multiple locator members, in which case
+						you would specify a comma-separated list of locator host[port] connections
+						when starting a server.)</p>
+<p class="p">Again, the <samp class="ph codeph">-client-port</samp>
+						indicates that each server will listen for thin clients on a unique
+						connection (localhost:1528 and localhost:1529, respectively). However, in
+						the tutorials that follow all clients will connect using the locator instead
+						of making direct connections to servers. </p>
+<p class="p">Startup messages show the
+						cluster membership details. </p>
+<p class="p">By default, new GemFire XD servers host
+						data as data stores, and are automatically added to a default server group.
+						You can optionally specify server group membership at startup using the
+							<a class="xref noPageCitation" href="../../reference/configuration/ConnectionAttributes.html#jdbc_connection_attributes__section_C127F27AE9FB42389DB030113FAAB594">server-groups</a> boot property. </p>
+
+				</li>
+
+				<li class="li">Before adding any data to the cluster, look at the contents of the new member
+					directories now that the distributed system has started
+						up:<pre class="pre codeblock">$ <strong class="ph b">ls $HOME/locator $HOME/server1 $HOME/server2</strong>
+/Users/yozie/locator:
+BACKUPGFXD-DEFAULT-DISKSTORE.if     DRLK_IFGFXD-DEFAULT-DISKSTORE.lk    gfxdlocator.log                     start_gfxdlocator.log
+BACKUPGFXD-DEFAULT-DISKSTORE_1.crf  datadictionary/                     locator10101state.dat
+BACKUPGFXD-DEFAULT-DISKSTORE_1.drf  gfxdlocator-01-01.log               locator10101views.log
+
+/Users/yozie/server1:
+BACKUPGFXD-DEFAULT-DISKSTORE.if     BACKUPGFXD-DEFAULT-DISKSTORE_1.drf  datadictionary/                     start_gfxdserver.log
+BACKUPGFXD-DEFAULT-DISKSTORE_1.crf  DRLK_IFGFXD-DEFAULT-DISKSTORE.lk    gfxdserver.log
+
+/Users/yozie/server2:
+BACKUPGFXD-DEFAULT-DISKSTORE.if     BACKUPGFXD-DEFAULT-DISKSTORE_1.drf  datadictionary/                     start_gfxdserver.log
+BACKUPGFXD-DEFAULT-DISKSTORE_1.crf  DRLK_IFGFXD-DEFAULT-DISKSTORE.lk    gfxdserver.log</pre>
+<div class="p">Notice
+						the files that begin with <span class="ph filepath">BACKUPGFXD-DEFAULT-DISKSTORE</span>.
+						These are GemFire XD disk store files, which can be used to persist table
+						data to disk. The files listed above are created for the default server
+						group, which includes all data stores members that join the distributed
+						system. You can also create named server groups and disk stores, but the
+						default group and disk stores are used for persistence if you do not
+						specifically assign persistent tables and queues to a named server group.
+						Also notice the /datadictionary subdirectory on each
+						member:<pre class="pre codeblock">$ <strong class="ph b">ls $HOME/locator/datadictionary $HOME/server1/datadictionary $HOME/server2/datadictionary</strong>
+/Users/yozie/locator/datadictionary:
+BACKUPGFXD-DD-DISKSTORE.if     BACKUPGFXD-DD-DISKSTORE_1.crf  BACKUPGFXD-DD-DISKSTORE_1.drf  DRLK_IFGFXD-DD-DISKSTORE.lk
+
+/Users/yozie/server1/datadictionary:
+BACKUPGFXD-DD-DISKSTORE.if     BACKUPGFXD-DD-DISKSTORE_1.crf  BACKUPGFXD-DD-DISKSTORE_1.drf  DRLK_IFGFXD-DD-DISKSTORE.lk
+
+/Users/yozie/server2/datadictionary/:
+BACKUPGFXD-DD-DISKSTORE.if     BACKUPGFXD-DD-DISKSTORE_1.crf  BACKUPGFXD-DD-DISKSTORE_1.drf  DRLK_IFGFXD-DD-DISKSTORE.lk</pre>
+</div>
+<p class="p">A
+						separate set of disk store files are created to maintain the datadictionary
+						for the distributed system. Regardless of whether you intend to persist your
+						table data to disk, GemFire XD always persists the datadictionary, so any
+						Data Definition Language (DDL) that you execute creates objects that exist
+						even through full shutdowns of the distributed system.</p>
+<p class="p">Also notice
+						that the locator also has created disk store files. Like data store members,
+						locators maintain persistence files for the cluster. This is important as
+						you may want to stop or restart data store members for maintenance. Locator
+						process that remain running continue to maintain their persitent data files,
+						and datastores that rejoin the cluster at a later time can bring their
+						persistence files up-to-date (referred to as "recovering" their persistence
+						files) using disk store files from a locator or other data store
+						members.</p>
+<p class="p">More information about persistence and disk store files is
+						provided in the persistence tutorial. The important thing to keep in mind is
+						that you should never delete, move, or rename persistence files or
+						directories, as it is critical that GemFire XD members have access to these
+						files when they restart and join the distributed system. </p>
+</li>
+ 
+	 </ol>
+ 
+	 </div>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial_chapter_intro.html" title="Learn to configure and use GemFire XD features such as table replication and partitioning, persisting data to local disk stores and HDFS, and dynamically resizing the cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">QuickStart Tutorials</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

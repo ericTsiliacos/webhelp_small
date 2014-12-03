@@ -1,0 +1,595 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This topic describes the supported configurations and system requirements for GemFire XD. Before installing GemFire XD, make sure your system meets the minimum system requirements for installing and ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Supported Configurations and System Requirements"/><meta name="abstract" content="This topic describes the supported configurations and system requirements for GemFire XD."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This topic describes the supported configurations and system requirements for GemFire XD."/><meta name="DC.subject" content="GemFire XD supported configurations system requirements jvm operating system syn cookies jdk"/><meta name="keywords" content="GemFire XD supported configurations system requirements jvm operating system syn cookies jdk"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_system-requirements"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Supported Configurations and System Requirements</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_system-requirements"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"/><td><div class="navheader"/></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Supported Configurations and System Requirements</h1>
+ 
+   
+   
+	<div class="body conbody"><p class="shortdesc">This topic describes the supported configurations and system
+	 requirements for GemFire XD. 
+  </p>
+  
+	 <div class="p">Before installing GemFire XD, make sure your system meets the minimum
+		system requirements for installing and running the product. 
+	 <ul class="ul" id="concept_system-requirements__ul_EFD22ED9136448469B778074B7B046A7"> 
+		<li class="li" id="concept_system-requirements__li_4C9178FD0C50485AB3F9F0338D3927BA"> 
+		  <a class="xref" href="system_requirements.html#concept_system-requirements__section_3B2CA7815CB54A6B9113793AA7E16AB1">Supported Configurations</a>
+		  
+		</li>
+ 
+		<li class="li" id="concept_system-requirements__li_C7A115122B414CE28903420B9B4867E3"> 
+		  <a class="xref" href="system_requirements.html#concept_system-requirements__section_1E1F206FBC8B4A898A449E0699907A7A">Host Machine Requirements</a>
+		  
+		</li>
+ 
+		<li class="li" id="concept_system-requirements__li_42F03F1B67CF4DFC90E4718BF6672B33"> 
+		  <a class="xref" href="system_requirements.html#concept_system-requirements__section_A7FA1482CB424D8FB1D90AE017055912">Increase Unicast Buffer Size on Linux Platforms</a>
+		  
+		</li>
+ 
+		<li class="li" id="concept_system-requirements__li_B2FBF38944274EF8A1ABE5D615994DD8"> 
+		  <a class="xref" href="system_requirements.html#concept_system-requirements__section_1C63B8B771414D3294F96D362830158E">Disable SYN Cookies on Linux Platforms</a>
+		  
+		</li>
+
+				<li class="li"><a class="xref" href="#concept_system-requirements__section_uqs_v3z_np">Filesystem Type for Linux Platforms</a></li>
+
+				<li class="li"><a class="xref" href="#concept_system-requirements__phdreq">Pivotal HD 2.2 Required for HDFS Integration</a></li>
+
+				<li class="li"><a class="xref" href="#concept_system-requirements__seclockmem">Requirements for Running GemFire XD and Hadoop on the Same Machine</a></li>
+
+				<li class="li"><a class="xref" href="#concept_system-requirements__sec_hdfsclienttimeout">Requirements when using Hadoop without High Availability</a></li>
+ 
+		<li class="li" id="concept_system-requirements__li_4B64C6223EFE4143B4731D8AA6847CB4"> 
+		  <a class="xref" href="#concept_system-requirements__hawqreq">Restriction for Deploying HAWQ with GemFire XD</a>
+		  
+		</li>
+
+				<li class="li" id="concept_system-requirements__li_96DE54411F74436289EFE095F8684DAD">
+					<a class="xref" href="system_requirements.html#concept_system-requirements__system_requirements">Client Requirements</a>
+				</li>
+ 
+	 </ul>
+ 
+	 </div>
+ 
+	 <div class="section" id="concept_system-requirements__section_3B2CA7815CB54A6B9113793AA7E16AB1"><h2 class="title sectiontitle">Supported Configurations</h2> 
+		 
+		<p class="p">The following table shows all supported configurations for GemFire XD.
+		  
+		</p>
+
+			<div class="note note"><span class="notetitle">Note:</span> Pivotal GemFire XD 1.4.0 no longer supports Java SE 6. If your current GemFire XD
+				installation uses Java SE 6, you will need to update to Java SE 7 before starting
+				GemFire XD 1.4 members. <p class="p">Also keep in mind that applications that are ported from
+					JDK 1.6 to JDK 1.7 may need to adjust their JVM configuration. Specifically, the
+					default sizes for generations in the Java heap have changed significantly
+					between JDK 1.6 and JDK 1.7. For more information, see <a class="xref" href="http://docs.oracle.com/javase/8/docs/technotes/guides/vm/enhancements-7.html" target="_blank">Java Virtual Machine Enhancements in JDK
+						7</a> in the Oracle Java documentation.</p>
+
+			</div>
+ 
+		
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_system-requirements__table_07610A8C3C644A658A17812A4B9D58FB" class="table" frame="border" border="1" rules="all"> 
+			  
+			  
+			  
+			 
+					 
+			 <thead class="thead" align="left"> 
+				<tr class="row"> 
+				  <th class="entry" align="left" valign="top" width="1" id="d5297e132">Operating System 
+				  </th>
+ 
+				  <th class="entry" valign="top" width="16.666666666666664%" id="d5297e135">Processor Architecture 
+				  </th>
+ 
+				  <th class="entry" align="center" valign="top" width="1" id="d5297e138">JVM 
+				  </th>
+
+							<th class="entry" valign="top" width="33.33333333333333%" id="d5297e141">Production or Developer Support</th>
+ 
+				</tr>
+ 
+			 </thead>
+ 
+			 <tbody class="tbody"> 
+				<tr class="row"> 
+				  <td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">Red Hat EL 5, 6.2, 6.4 </td>
+ 
+				  <td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64bit) 
+				  </td>
+ 
+				  <td class="entry" align="center" valign="top" width="1" headers="d5297e138 "> 
+					 <p class="p">Java SE 1.7.0_72 </p>
+ 
+				  </td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Production</td>
+ 
+				</tr>
+ 
+				<tr class="row"> 
+				  <td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">CentOS 6.2, 6.4 
+				  </td>
+ 
+				  <td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64bit) 
+				  </td>
+ 
+				  <td class="entry" align="center" valign="top" width="1" headers="d5297e138 "> 
+					 <p class="p">Java SE 1.7.0_72 </p>
+ 
+				  </td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Production</td>
+ 
+				</tr>
+
+						<tr class="row">
+							<td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">Ubuntu 14.04</td>
+
+							<td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64bit and 32 bit) </td>
+
+							<td class="entry" align="center" valign="top" width="1" headers="d5297e138 ">
+								<p class="p">Java SE 1.7.0_72 </p>
+
+							</td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Production </td>
+
+						</tr>
+
+						<tr class="row">
+							<td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">SUSE Linux Enterprise Server 11</td>
+
+							<td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64bit and 32 bit) </td>
+
+							<td class="entry" align="center" valign="top" width="1" headers="d5297e138 ">
+								<p class="p">Java SE 1.7.0_72 </p>
+
+							</td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Production </td>
+
+						</tr>
+
+						<tr class="row">
+							<td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">Windows Server 2008 R2 Standard*‡ </td>
+
+							<td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64bit and 32 bit) </td>
+
+							<td class="entry" align="center" valign="top" width="1" headers="d5297e138 ">
+								<p class="p">Java SE 1.7.0_72 </p>
+
+							</td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Production </td>
+
+						</tr>
+
+						<tr class="row">
+							<td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">Windows 7 SP1 Professional or Enterprise* </td>
+
+							<td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64bit and 32 bit) </td>
+
+							<td class="entry" align="center" valign="top" width="1" headers="d5297e138 ">
+								<p class="p">Java SE 1.7.0_72 </p>
+
+							</td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Developer </td>
+
+						</tr>
+
+						<tr class="row">
+							<td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">Ubuntu 10.11 </td>
+
+							<td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64 bit) </td>
+
+							<td class="entry" align="center" valign="top" width="1" headers="d5297e138 ">
+								<p class="p">Java SE 1.7.0_72 </p>
+
+							</td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Developer </td>
+
+						</tr>
+
+						<tr class="row">
+							<td class="entry" align="left" valign="top" width="1" headers="d5297e132 ">Mac OS X 10.8, 10.9</td>
+
+							<td class="entry" valign="top" width="16.666666666666664%" headers="d5297e135 ">x86 (64 bit) </td>
+
+							<td class="entry" align="center" valign="top" width="1" headers="d5297e138 ">
+								<p class="p">Java SE 1.7.0_72 </p>
+
+							</td>
+
+							<td class="entry" valign="top" width="33.33333333333333%" headers="d5297e141 ">Developer </td>
+
+						</tr>
+ 
+			 </tbody>
+ 
+		  </table>
+</div>
+ 
+		<p class="p">*The Microsoft Loopback Adapter is not supported. </p>
+
+			<p class="p">‡Windows Server 2008 users should use the Resource Monitor to verify the amount of
+				RAM that is available to the operating system. If a large amount of RAM is marked as
+				"Hardware Reserved," then check the computer's BIOS settings to ensure that features
+				such as "Redundant Memory" or "RAS Memory Mirroring" are not accidentally
+				enabled.</p>
+ 
+		<div class="note note"><span class="notetitle">Note:</span> The GemFire XD product download does not include Java; you must
+		  download and install a supported JDK for your system. 
+		</div>
+ 
+	 </div>
+ 
+	 <div class="section" id="concept_system-requirements__section_1E1F206FBC8B4A898A449E0699907A7A"><h2 class="title sectiontitle">Host Machine Requirements</h2> 
+		 
+		<div class="p">Requirements for each host: 
+		<ul class="ul" id="concept_system-requirements__ul_6B9456040C104BEEBA4B5566672BE4D3"> 
+		  <li class="li" id="concept_system-requirements__li_AD57209D964144F0B84E61139571BD62">A supported 
+			 <a class="xref" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u26-download-400750.html" target="_blank">Java SE installation</a>. 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_5BCC71BBA78341EABCD72ED1EDC3EC5E">File system that supports
+			 long file names. 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_4D48592F10C14E8AAB65A473488C1654">Adequate per-user quota of file handles (ulimit for
+						Linux). Large deployments with HDFS-persistent tables can require several
+						thousand file descriptors to manage the HDFS log files for partitioned table
+						buckets. Ensure that you set a high enough ulimit (up to the hard limit of
+						81,920) for your system. See <a class="xref" href="../../disk_storage/persist-hdfs-topics.html#topic_368CE64D716E48078795FAD470A5C372" title="When you configure a table for HDFS persistence, GemFire XD places all data to be persisted to HDFS in an asynchronous queue. A single HDFS queue is created for each set of colocated tables that use the queue. A configurable number of dispatcher threads periodically write batches of updates from the queue to HDFS operational log files. The behavior of the HDFS queue and the number and format of HDFS log files differ depending on whether you configure a table for HDFS write-only or HDFS read/write persistence.">How GemFire XD Manages HDFS Data</a> and <a class="xref" href="../../disk_storage/persist-hdfs-topics.html#topic_368CE64D716E48078795FAD470A5C372__section_1EFE6875389847B9824B7E59CF9F904F">Compaction for HDFS Log Files</a>.</li>
+ 
+		  <li class="li" id="concept_system-requirements__li_2304FA3B3E2C4164B94C04922FE2AE01">TCP/IP. 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_787413A4D8C34CE6822EEDE6050A9F7D">System clock set to the
+			 correct time. 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_D3A8BDF2C64C4345828D6ACDAFA44A26">For each Linux host, the 
+			 <span class="ph filepath">hostname</span> and 
+			 <span class="ph filepath">host</span> files must be properly configured. See the
+			 system manpages for hostname and hosts. 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_0032795FC1954F5287F5842A677E5287">For each Linux host,
+			 configure the swap volume to be the same size as the physical RAM installed in
+			 the computer. 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_0B3D25AF7A044037A4968C5BA2E15EBA">Time synchronization
+			 service such as Network Time Protocol (NTP). 
+		  </li>
+ 
+		</ul>
+ 
+		</div>
+ 
+		<div class="note note"><span class="notetitle">Note:</span> For troubleshooting, you must run a time synchronization service on
+		  all hosts. Synchronized time stamps allow you to merge log messages from
+		  different hosts, for an accurate chronological history of a distributed run. 
+		</div>
+
+			<div class="note note"><span class="notetitle">Note:</span> If you deploy GemFire XD to a virtualized host, see also <a class="xref" href="../../manage_guide/tuning-vm.html#concept_20E2D15D2F65442CAA0B04E9EA144F1D" title="Using a newer operating system version such as Red Hat 6 or SLES 11 can help performance in virtual environments. VMware also provides best practices guides that are directly applicable to applications such as Pivotal GemFire XD.">Running GemFire XD in Virtualized Environments</a>.</div>
+ 
+	 </div>
+
+		<div class="section"><h2 class="title sectiontitle">External Load Balancing, HA Solutions Not Supported</h2>
+			
+			<p class="p">GemFire XD does not support using external load balancing techniques between clients
+				and the GemFire XD distributed system, or between distributed system members. This
+				includes software and hardware load balancers, Virtual IP Addresses (VIPs), and
+				proxies. Similarly, external HA techniques such as Linux-HA and Windows Clustering
+				are not supported.</p>
+
+		</div>
+ 
+	 <div class="section" id="concept_system-requirements__section_A7FA1482CB424D8FB1D90AE017055912"><h2 class="title sectiontitle">Increase Unicast Buffer Size on Linux Platforms</h2> 
+		 
+		<div class="p">On Linux platforms, execute the following commands as the root user to
+		  increase the unicast buffer size: 
+		<ol class="ol" id="concept_system-requirements__ol_75D6FC8C25CC4FF9B892E014C8AA4152"> 
+		  <li class="li" id="concept_system-requirements__li_16B00750A345485CBC9839B1D650ED1A">Edit the 
+			 <span class="ph filepath">/etc/sysctl.conf</span> file to include the following
+			 lines: 
+			 <pre class="pre codeblock">net.core.rmem_max=1048576
+net.core.wmem_max=1048576</pre>
+ 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_BC3CCB2C97D94E3290CD787D8F0EB2DB">Reload 
+			 <span class="ph filepath">sysctl.conf</span>: 
+			 <pre class="pre codeblock">sysctl -p</pre>
+ 
+		  </li>
+ 
+		</ol>
+ 
+		</div>
+ 
+	 </div>
+ 
+	 <div class="section" id="concept_system-requirements__section_1C63B8B771414D3294F96D362830158E"><h2 class="title sectiontitle">Disable SYN Cookies on Linux Platforms</h2> 
+		 
+		<p class="p">Many default Linux installations use SYN cookies to protect the system
+		  against malicious attacks that flood TCP SYN packets. The use of SYN cookies
+		  dramatically reduces network bandwidth, and can be triggered by a running
+		  GemFire XD distributed system. 
+		</p>
+ 
+		<p class="p">If your GemFire XD distributed system is otherwise protected against
+		  such attacks, disable SYN cookies to ensure that GemFire XD network throughput
+		  is not affected. 
+		</p>
+ 
+		<div class="p">To disable SYN cookies permanently: 
+		   
+		<ol class="ol" id="concept_system-requirements__ol_66CFCA063B5E424A9DE9BB36C3F81DEE"> 
+		  <li class="li" id="concept_system-requirements__li_D0F9171B86044CF6BC62BBC6C77B070C">Edit the 
+			 <span class="ph filepath">/etc/sysctl.conf</span> file to include the following
+			 line: 
+			 <pre class="pre codeblock">net.ipv4.tcp_syncookies = 0</pre>
+ 
+			 <p class="p">Setting this value to zero disables SYN cookies. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li class="li" id="concept_system-requirements__li_BECFE69244604DA7A72E4CB1CE455A92">Reload 
+			 <span class="ph filepath">sysctl.conf</span>: 
+			 <pre class="pre codeblock">sysctl -p</pre>
+ 
+		  </li>
+ 
+		</ol>
+ 
+		</div>
+ 
+	 </div>
+
+		<div class="section" id="concept_system-requirements__section_uqs_v3z_np"><h2 class="title sectiontitle">Filesystem Type for Linux Platforms</h2>
+			
+			<p class="p">For optimum disk-store performance, Pivotal recommends the use of ext4 filesystems
+				when operating on Linux or Solaris platforms. See <a class="xref" href="../../disk_storage/running_system_with_disk_stores.html#running_system_with_disk_stores" title="Optimize availability and performance by following the guidelines in this section">Optimizing a System with Disk Stores</a>.</p>
+
+		</div>
+
+		<div class="section" id="concept_system-requirements__phdreq"><h2 class="title sectiontitle">Pivotal HD 2.2 Required for HDFS Integration</h2>
+			
+			<p class="p">This release of GemFire XD is provided as a standalone product. However, GemFire XD 1.4
+				requires Pivotal HD Enterprise 2.2 in order to provide HDFS and HAWQ integration
+				features. If you install GemFire XD on a machine that does not have a Pivotal HD
+				installation, keep in mind that GemFire XD still requires libraries from the
+				following Pivotal HD directories in order to support HDFS integration features:</p>
+
+			<ul class="ul" id="concept_system-requirements__ul_cqh_m32_ql">
+				<li class="li"><span class="ph filepath">/usr/lib/gphd/hadoop</span></li>
+
+				<li class="li"><span class="ph filepath">/usr/lib/gphd/hadoop-mapreduce</span></li>
+
+				<li class="li"><span class="ph filepath">/usr/lib/gphd/hadoop-hdfs/</span></li>
+
+			</ul>
+
+			<p class="p">For Linux deployments, you can manually copy these directories from a Pivotal HD
+				installation to the GemFire XD machine in order to support HDFS tables. The
+					<samp class="ph codeph">gfxd</samp> script on Linux platforms automatically adds JAR files
+				from these directories to the classpath when you start a GemFire XD member or run
+				the <samp class="ph codeph">gfxd</samp> utility. For Windows or Linux platforms, you can use an
+				installed script to collect the required libraries into a ZIP file, and then copy
+				the ZIP file to the <span class="ph filepath">ext-lib</span> subdirectory of the GemFire XD
+				installation directory. This automatically adds the libraries to the GemFire XD
+				classpath, and is a necessary step for supporting HDFS tables on Windows platforms.
+				See the procedures in <a class="xref" href="install_intro.html#install-setup" title="You can install GemFire for production use from a downloaded RPM file (RHEL only) or from a downloaded ZIP file (Windows or RHEL). Pivotal also provides a Debian package and Homebrew packages for development with Ubuntu and Mac OSX. The following sections describe how to install the standalone GemFire XD product using a downloaded RPM file, ZIP file, Debian package, or Homebrew package.">Installing GemFire XD</a> or <a class="xref" href="upgrade-jar.html#concept_BAD30C4FAB0949418E33C3F77723DEB6" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x.">Upgrading GemFire XD</a> for more
+				information.</p>
+
+			<div class="note note"><span class="notetitle">Note:</span> As a best practice for Linux platforms, you should try to install GemFire XD
+				members and HDFS data nodes on the same machines.  HDFS automatically tries to
+				colocate new blocks on the local data nodes, which improves GemFire XD read and
+				write performance for HDFS table data. If you deploy GemFire XD on the same machine
+				as Pivotal HD, ensure that the machine meets the requirements for both products, and
+				that disk resources are sufficient to support both the HDFS data and local GemFire
+				XD table data required for that member. See also <a class="xref" href="#concept_system-requirements__seclockmem">Requirements for Running GemFire XD and Hadoop on the Same Machine</a> to lock the
+				memory available to GemFire XD and avoid potential performance problems.</div>
+
+		</div>
+
+		<div class="section" id="concept_system-requirements__seclockmem"><h2 class="title sectiontitle">Requirements for Running GemFire XD and Hadoop on the Same Machine</h2>
+			
+			<p class="p">Severe performance degradation can occur for insert-heavy workloads when GemFire XD
+				and Hadoop run on the same machine and GemFire XD is configured with very large
+				memory sizes (either off-heap or on-heap memory). The performance degradation occurs
+				when the operating system pages out GemFire XD memory to disk.</p>
+
+			<div class="p">To prevent this problem, perform these steps when deploying GemFire XD and Hadoop on the same machine:<ol class="ol">
+					<li class="li">Increase the operating system's <samp class="ph codeph">ulimit -l</samp> value (the
+						maximum size that may be locked in memory) from the default of 32 KB to at
+						least the total amount of memory used by GemFire XD for on-heap or off-heap
+							storage.<p class="p">To permanently change the default limit for all users, edit
+							the <span class="ph filepath">/etc/security/limits.conf</span> file and add the
+							line:</p>
+<pre class="pre codeblock"><strong class="ph b">* hard memlock <em class="ph i">limit-value-in-kb</em></strong></pre>
+</li>
+
+					<li class="li">When you start each GemFire XD data store, include the <samp class="ph codeph">gfxd</samp>
+						<samp class="ph codeph">-lock-memory</samp> option to prevent the operating system from
+						paging out heap or off-heap memory.</li>
+
+				</ol>
+</div>
+
+			<p class="p"><strong class="ph b">Note:</strong> If you do not increase the "ulimit -l" value to at least the amount of
+				memory used by GemFire XD, then GemFire XD will fail to start when you specify
+					<samp class="ph codeph">-lock-memory</samp>.</p>
+
+			<div class="p"><strong class="ph b">Note:</strong> Using locked memory in this manner increases the time required to start
+				GemFire XD. The additional time required to start GemFire XD depends on the total
+				amount of memory used, and can range from several seconds to 10 minutes or more. To
+				improve startup time and reduce the potential of member timeouts, execute the
+				following command before starting a GemFire XD
+				member:<pre class="pre codeblock">$ <strong class="ph b">echo 1 &gt; /proc/sys/vm/drop_caches</strong></pre>
+</div>
+
+		</div>
+
+		<div class="section" id="concept_system-requirements__sec_hdfsclienttimeout"><h2 class="title sectiontitle">Requirements when using Hadoop without High Availability</h2>
+			
+			<div class="p">If you do not configure your Hadoop system for high availability with redundant
+				failover, then it is important that you set Hadoop timeout properties to these
+				recommended values:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_system-requirements__table_i53_w1w_kn" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Hadoop Client Timeout Properties</span></caption>
+						
+						
+						<thead class="thead" align="left">
+							<tr class="row">
+								<th class="entry" valign="top" width="50%" id="d5297e611">Client Timeout Property</th>
+
+								<th class="entry" valign="top" width="50%" id="d5297e614">Recommended Value</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d5297e611 ">ipc.client.ping</td>
+
+								<td class="entry" valign="top" width="50%" headers="d5297e614 ">false</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d5297e611 ">ipc.ping.interval</td>
+
+								<td class="entry" valign="top" width="50%" headers="d5297e614 ">5000</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d5297e611 ">ipc.client.connect.timeout</td>
+
+								<td class="entry" valign="top" width="50%" headers="d5297e614 ">5000</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d5297e611 ">ipc.client.connect.max.retries</td>
+
+								<td class="entry" valign="top" width="50%" headers="d5297e614 ">2</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d5297e611 ">ipc.client.connect.max.retries.on.timeouts</td>
+
+								<td class="entry" valign="top" width="50%" headers="d5297e614 ">0</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d5297e611 ">dfs.client.socket-timeout</td>
+
+								<td class="entry" valign="top" width="50%" headers="d5297e614 ">30000</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+</div>
+</div>
+
+			<p class="p">Using these values ensures that GemFire XD read operations to Hadoop quickly fail if
+				the Hadoop node is unavailable (instead of hanging for a long period of time due to
+				the default timeout intervals).</p>
+
+		</div>
+ 
+	 <div class="section" id="concept_system-requirements__hawqreq"><h2 class="title sectiontitle">Restriction for Deploying HAWQ with GemFire XD</h2> 
+		 
+		<p class="p">Due to the memory requirements and memory configuration required for each product, Pivotal does
+				not support production deployments of GemFire XD and HAWQ on the same machine.
+				Deploy GemFire XD and HAWQ on the same machine or virtual machine only for
+				development or testing purposes. </p>
+ 
+		<div class="note note"><span class="notetitle">Note:</span> When you deploy GemFire XD with HAWQ on the same machine, you must
+		  set the swap volume to the same size as physical RAM. See 
+		  <a class="xref" href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/s1-swap-adding.html" target="_blank">Adding Swap Space</a> in the RedHat or CentOS
+		  documentation for details. 
+		</div>
+ 
+	 </div>
+
+		<div class="section" id="concept_system-requirements__system_requirements"><h2 class="title sectiontitle">Client Requirements</h2>
+			
+			<p class="p">GemFire XD supports two JDBC drivers: a thin client JDBC driver and a peer JDBC
+				driver. GemFire XD server instances and the peer driver are supported only with Java
+				SE 6. You can download Java from <a class="xref" href="http://www.oracle.com/technetwork/java/javase/downloads/index.htm" target="_blank">http://www.oracle.com/technetwork/java/javase/downloads/index.htm</a>. </p>
+
+			<p class="p" id="concept_system-requirements__p_A142FC149A674524A96F5C9DD23D93B0">GemFire XD provides a managed ADO.NET driver
+				that you can use for developing non-Java client applications. The ADO.NET driver
+				uses IKVM technology to translate GemFire XD JDBC core libraries to .NET MSIL. The
+				ADO.NET driver is supported for applications built using the Microsoft .NET 2.0 SP1
+				or higher framework. </p>
+
+			<p class="p">In addition, GemFire XD now supports an ODBC driver that responds to ODBC API function calls
+				in client applications. The GemFire XD ODBC driver supports ODBC 3.5 APIs and the
+				unixODBC, iODBC, or Progress ODBC driver managers. The driver is a separate
+				installation download from GemFire XD. See<a class="xref" href="../../developers_guide/topics/odbc/using_odbc_functions.html#topic_hgm_2bq_nl" title="GemFire XD provides an ODBC driver that allows you to execute ODBC API functions on GemFire XD data stores from your client applications.">Using ODBC Driver Functions in Client Applications</a>
+				for more information on driver installation requirements. </p>
+
+		</div>
+ 
+  </div>
+
+<div class="navfooter"><!----></div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

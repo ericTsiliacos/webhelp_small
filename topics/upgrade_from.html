@@ -1,0 +1,105 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section provides information you need to know before you begin to upgrade Pivotal GemFire XD. Note: Thoroughly test your systems with the new 1.4 version before moving into production. ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Before You Upgrade"/><meta name="abstract" content="This section provides information you need to know before you begin to upgrade Pivotal GemFire XD."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section provides information you need to know before you begin to upgrade Pivotal GemFire XD."/><meta name="DC.subject" content="GemFire XD upgrade, GemFire XD upgrading, GemFire XD upgrading to 1.4, GemFire XD migrate"/><meta name="keywords" content="GemFire XD upgrade, GemFire XD upgrading, GemFire XD upgrading to 1.4, GemFire XD migrate"/><meta name="DC.Relation" scheme="URI" content="../topics/upgrade-jar.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="concept_0129F6A1D0EB42C4A3D24861AF2C5425"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Before You Upgrade</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x.">Upgrading GemFire XD</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Upgrading GemFire XD</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Before You Upgrade</h1>
+ 
+   
+   
+  <div class="body conbody"><p class="shortdesc">This section provides information you need to know before you begin to upgrade Pivotal
+		GemFire XD. </p>
+
+		<div class="note note"><span class="notetitle">Note:</span> Thoroughly test your systems with the new 1.4 version before moving into production.
+			Downgrading from 1.4 to a previous version of GemFire XD is not supported</div>
+ 
+	 <ul class="ul" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__ul_1C62DD4071AC4049A8BAD6688297E279">
+			<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_410BD57BD04C471CAA099DDD42A718EF">Read the GemFire XD <a class="xref" href="http://gfxd-140.cfapps.io/relnotes" target="_blank">Release
+					Notes</a> to familiarize yourself with all feature changes and upgrade
+				considerations. </li>
+
+			<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_00E4F040D5764B0A814756088FD461B2">Confirm that your system meets the
+				requirements to run GemFire XD. See <a class="xref" href="system_requirements.html#concept_system-requirements__phdreq">Pivotal HD 2.2 Required for HDFS Integration</a>.  </li>
+
+			<li class="li">Pivotal GemFire XD 1.4.0 no longer supports Java SE 6. If your current GemFire XD 1.3.x
+				installation uses Java SE 6, you will need to update to Java SE 7 before you start
+				GemFire XD 1.4 members. To check your current Java version, type <samp class="ph codeph">java
+					-version</samp> at a command-line prompt.<p class="p">Keep in mind that applications
+					that are ported from JDK 1.6 to JDK 1.7 may need to adjust their JVM
+					configuration. Specifically, the default sizes for generations in the Java heap
+					have changed significantly between JDK 1.6 and JDK 1.7. For more information,
+					see <a class="xref" href="http://docs.oracle.com/javase/8/docs/technotes/guides/vm/enhancements-7.html" target="_blank">Java Virtual Machine Enhancements in JDK
+						7</a> in the Oracle Java documentation.</p>
+</li>
+
+			<li class="li">If your existing GemFire XD deployment uses DBSynchronizer, failover-related issues (such as
+				duplicate rows in the RDBMS) can occur during an upgrade if clients are actively
+				performing DML on synchronized tables. See <a class="xref" href="../../caching_database/dbsynchronizer-about.html#concept_4503872DEC7447ADA6206A92088461CF__section_012D26FAC5E14F7F9E7A3F39503203A4">How Failover and Upgrades Affect Synchronization</a> in the DBSynchronizer documentation.</li>
+ 
+		<li class="li" id="concept_0129F6A1D0EB42C4A3D24861AF2C5425__li_E2C1ED56FDAB4349A2FFED5F4378E5AF">Know how to configure
+		  environment variables for your system. 
+		</li>
+
+			<li class="li">GemFire XD 1.4 does not support upgrades from SQLFire. SQLFire customers must first upgrade
+				to GemFire XD 1.3 before moving to GemFire XD 1.4. See <a class="xref" href="http://gemfirexd.docs.pivotal.io/1.3.0/userguide/index.html#getting_started/topics/upgrade-jar.html" target="_blank">Upgrading GemFire XD</a> in the GemFire XD 1.3
+				documentation for details about upgrading from SQLFire to GemFire XD.</li>
+
+			<li class="li">GemFire XD 1.4 supports rolling upgrades from GemFire XD 1.3.x. See <a class="xref" href="../rolling_upgrade.html#concept_FBBBC26ADD98482EABB9AB01A14F895E" title="A rolling upgrade enables you to keep your existing distributed system running while you upgrade members.">Performing a Rolling Upgrade</a>.<div class="note note"><span class="notetitle">Note:</span> After you begin the rolling upgrade process by starting a locator with
+					the version 1.4 software, you can no longer start GemFire XD members that use
+					the version 1.3 software. GemFire XD members at version 1.3 will fail to connect
+					to the distributed system with the
+					message:<pre class="pre codeblock">Rejecting the attempt of a member using an older version of the product to join an upgraded distributed system.  
+Please restart the process using the new version of the product</pre>
+
+				</div>
+</li>
+ 
+	 </ul>
+ 
+  </div>
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/upgrade-jar.html" title="Upgrade to GemFire XD 1.4 from GemFire XD 1.3.x."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Upgrading GemFire XD</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

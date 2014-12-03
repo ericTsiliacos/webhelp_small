@@ -1,0 +1,118 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In a traditional relational database, stored procedures are application routines that are stored as part of the data dictionary and executed on the database system itself. Stored procedures generally ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Parallel Execution of Data-Aware Stored Procedures"/><meta name="abstract" content="In a traditional relational database, stored procedures are application routines that are stored as part of the data dictionary and executed on the database system itself. Stored procedures generally offer high performance because they execute in close proximity to data required by the application logic. GemFire XD extends this basic stored procedure capability to support parallel execution of application logic on table data that is partitioned across many peers."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In a traditional relational database, stored procedures are application routines that are stored as part of the data dictionary and executed on the database system itself. Stored procedures generally offer high performance because they execute in close proximity to data required by the application logic. GemFire XD extends this basic stored procedure capability to support parallel execution of application logic on table data that is partitioned across many peers."/><meta name="DC.subject" content="GemFire XD store procedures DAP data-aware"/><meta name="keywords" content="GemFire XD store procedures DAP data-aware"/><meta name="DC.Relation" scheme="URI" content="../topics/systemoverview.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="overviewofgemfirexd"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Parallel Execution of Data-Aware Stored Procedures</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="overviewofgemfirexd"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster.">Understanding the GemFire XD Distributed System</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Parallel Execution of Data-Aware Stored Procedures</h1>
+ 
+   
+  
+  <div class="body conbody"><p class="shortdesc">In a traditional relational database, stored procedures are
+	 application routines that are stored as part of the data dictionary and
+	 executed on the database system itself. Stored procedures generally offer high
+	 performance because they execute in close proximity to data required by the
+	 application logic. GemFire XD extends this basic stored procedure capability to
+	 support parallel execution of application logic on table data that is
+	 partitioned across many peers. 
+  </p>
+ 
+	 <div class="section" id="overviewofgemfirexd__section_BB9158F274264052BE3B238DE18EAAEA"> 
+		<p class="p"> GemFire XD applications can execute stored procedures on specific data
+		  hosts, in parallel on all the members of a server group, or can target specific
+		  members based on the data requirements for the procedure. Essentially,
+		  application behavior that is encapsulated in stored procedures is moved to the
+		  process that hosts the associated data set, and it is executed there. If the
+		  required data set is spread across multiple partitions, the procedure is
+		  executed in parallel on the partition members. Results are streamed to a
+		  coordinating member and aggregated for the client invoking the procedure. 
+		</p>
+ 
+		<p class="p" id="overviewofgemfirexd__p_7B720CC081AC4C93AD8F621C8A3A18A9">For example, consider an
+		  'Order' table that is partitioned by its 'customer_id', and an application
+		  wanting to execute an expensive 'credit check' for several customers. Assume
+		  the credit test requires iteration over all the order history. You can
+		  parallelize the execution on all members that manage data for these customers
+		  and stream the results to the client. All order history required by each
+		  execution is locally available in-process. 
+		</p>
+ 
+		<pre class="pre"><samp class="ph codeph">// typical procedure call 
+   CallableStatement callableStmt = connection.prepareCall("{CALL order_credit_check(?) ");
+   callableStmt.setArray(1, &lt;list of customer IDs&gt;); 
+
+// GemFire XD data-aware procedure invocation 
+      CallableStatement callableStmt = connection.prepareCall("{CALL order_credit_check() " 
+        + "ON TABLE Orders WHERE customerID IN (?)}"); 
+      callableStmt.setArray(1, &lt;list of customer IDs&gt;); 
+
+// order_credit_check will be executed in parallel on all members where the orders
+// corresponding to the customerIDs are managed</samp>
+        </pre>
+ 
+		<div class="p">For more information, see: 
+		<ul class="ul" id="overviewofgemfirexd__ul_EA6599E0033F4ADBA26093236290E3C1"> 
+		  <li class="li" id="overviewofgemfirexd__li_BF515BC2668D4CB18D7A51CD3D68021C"><a class="xref" href="../../developers_guide/topics/server-side/data-aware-procedures.html#data-aware-procedures" title="A procedure is an application function call or subroutine that is managed in the database server. Because multiple GemFire XD members operate together in a distributed system, procedure execution in GemFire XD can also be parallelized to run on multiple members, concurrently. A procedure that executes concurrently on multiple GemFire XD members is called a data-aware procedure.">Programming Data-Aware Procedures and Result Processors</a>
+			 
+		  </li>
+ 
+		  <li class="li" id="overviewofgemfirexd__li_34C5942803AF488ABE5598D6798FB468"><a class="xref" href="../../developers_guide/topics/server-side/data-aware-proc-provider-api.html#data-aware-proc-provider-api" title="GemFire XD provides an API to help you develop data-aware procedures. A ProcedureExecutionContext object provides information about the table used to filter the procedure execution, colocated data, and other information about the context in which a procedure is executed. An OutgoingResultSet interface enables you to construct a result set by adding rows or columns to a List object.">Using the Procedure Provider API</a>
+			 
+		  </li>
+ 
+		  <li class="li" id="overviewofgemfirexd__li_921595615605413B8F64B9A92E2EF854"><a class="xref" href="../../developers_guide/topics/server-side/dap-impl-processor.html#concept_E9A715726A994FBDAF5EF91A8D7993FE" title="Data-aware procedures use a separate result processor to merge the procedure results from multiple GemFire XD members. You can use the default GemFire XD result processor when basic concatenation of the results are required.">Using the Custom Result Processor API</a>
+			 
+		  </li>
+ 
+		</ul>
+ 
+		</div>
+ 
+	 </div>
+ 
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>

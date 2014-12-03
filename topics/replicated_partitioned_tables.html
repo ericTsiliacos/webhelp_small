@@ -1,0 +1,77 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Tables in GemFire XD can be partitioned or replicated. A replicated table keeps a copy of its entire data set locally on every GemFire XD server in its server group. A partitioned table manages large ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Replicated Tables and Partitioned Tables"/><meta name="abstract" content="Tables in GemFire XD can be partitioned or replicated. A replicated table keeps a copy of its entire data set locally on every GemFire XD server in its server group. A partitioned table manages large volumes of data by partitioning it into manageable chunks and distributing those chunks across all members in the table's server group."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Tables in GemFire XD can be partitioned or replicated. A replicated table keeps a copy of its entire data set locally on every GemFire XD server in its server group. A partitioned table manages large volumes of data by partitioning it into manageable chunks and distributing those chunks across all members in the table's server group."/><meta name="DC.subject" content="GemFire XD tables replicated partitioned"/><meta name="keywords" content="GemFire XD tables replicated partitioned"/><meta name="DC.Relation" scheme="URI" content="../topics/systemoverview.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="overviewofgemfirexd"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Replicated Tables and Partitioned Tables</title><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Type" content="text/html; charset=utf-8"><!----></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/pivotal.css"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script></head>
+<body onload="highlightSearchTerm()" id="overviewofgemfirexd"><script xmlns="http://www.w3.org/1999/xhtml" src="//use.typekit.net/clb0qji.js" type="text/javascript"/><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  try {
+				  Typekit.load();
+			  } catch (e) {
+			  }
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			  document.domain = "pivotal.io";
+		  </script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+			WebFontConfig = {
+			  google: { families: [ 'Source+Sans+Pro:300italic,400italic,300,400,600:latin' ] }
+			};
+			(function() {
+			  var wf = document.createElement('script');
+			  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			  wf.type = 'text/javascript';
+			  wf.async = 'true';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(wf, s);
+			})();
+		  </script>
+<table class="nav"><tbody><tr><td colspan="2"><div id="permalink"><a href="#" title="Link to this page"/></div><div id="printlink"><a href="javascript:window.print();" title="Print this page"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../topics/../book_intro.html" title="Getting Started with GemFire XD provides step-by-step procedures for installing, configuring, and using GemFire XD. The guide also explains main concepts and provides tutorials to help you quickly begin using GemFire XD.">Getting Started with GemFire XD</a> / <a class="navheader_parent_path" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster.">Understanding the GemFire XD Distributed System</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div></td></tr></tbody></table>
+ 
+  <h1 class="title topictitle1">Replicated Tables and Partitioned Tables</h1>
+ 
+   
+  
+  <div class="body conbody"><p class="shortdesc">Tables in GemFire XD can be partitioned or replicated. A replicated
+	 table keeps a copy of its entire data set locally on every GemFire XD server in
+	 its server group. A partitioned table manages large volumes of data by
+	 partitioning it into manageable chunks and distributing those chunks across all
+	 members in the table's server group. 
+  </p>
+ 
+	 <div class="section" id="overviewofgemfirexd__KeyConcepts-12"> 
+		<p class="p" id="overviewofgemfirexd__p_ABC4BBF6A9374D75860BD68CAB39B686"> By default, all tables are replicated unless you
+				specify partitioning in the <a class="xref noPageCitation" href="../../reference/language_ref/ref-create-table.html#create-table" title="Creates a new table using GemFire XD features.">CREATE TABLE</a> statement. The schema information for
+				all GemFire XD objects is visible at all times to all peer members of the distributed
+				system including peer clients, but excluding standalone locators. </p>
+ 
+		<p class="p"><a class="xref" href="../../data_management/partitioning.html#concept_08031D9C1AEA48F1B4B021CA1BE3ABF5" title="Horizontal partitioning involves spreading a large data set (many rows in a table) across members in a cluster. GemFire XD uses a variant of the consistent hash algorithm to help ensure that data is uniformly balanced across all members of the target server group.">Partitioning Tables</a>
+		  and 
+		  <a class="xref" href="../../data_management/replicating.html#concept_EBDC9C1A5EA54B868475D540581D6F88" title="GemFire XD server groups control which GemFire XD data store members replicate the table's data. GemFire XD replicates table data both when a new table is initialized in a cluster and when replicated tables are updated.">Replicating Tables</a>
+		  provide more information. 
+		</p>
+ 
+	 </div>
+ 
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../topics/systemoverview.html" title="A GemFire XD deployment consists of distributed member processes that connect to each other to form a peer-to-peer network, also known as a distributed system or GemFire XD cluster."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understanding the GemFire XD Distributed System</span></a></span>  </div><div>
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+      <a href="http://docs.pivotal.io" target="_blank">Pivotal Documentation</a>
+      © 2014 <a href="http://www.pivotal.io/" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+  </div>
+  <div class="support">
+    Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+   </div>
+  </footer>
+</div><!--end of container-->
+</div>
+</body>
+</html>
